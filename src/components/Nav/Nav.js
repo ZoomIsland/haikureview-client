@@ -32,7 +32,8 @@ class Nav extends Component {
       case "login":
         axios.post(`${process.env.REACT_APP_API}login/`, data)
           .then((res) => {
-            console.log(res)
+            console.log(res);
+            this.props.setCurrentUser(res.data.token);
           })
           .catch((err) => {
             console.log(err)
@@ -43,6 +44,7 @@ class Nav extends Component {
         axios.post(`${process.env.REACT_APP_API}register/`, data)
           .then((res) => {
             console.log(res)
+            this.props.setCurrentUser(res.data.token);
           })
           .catch((err) => {
             console.log(err)
@@ -66,10 +68,18 @@ class Nav extends Component {
         </div>
         <div className="navLinks">
           {/* <a href="#">Random Haiku</a> */}
-          <button onClick={this.formAppear} value="login">Login</button>
-          <button onClick={this.formAppear} value="signup">Sign Up</button>
-          {/* <a href="#">Add Haiku</a>
-          <a href="#">Logout</a> */}
+          {!this.props.currentUser && (
+            <React.Fragment>
+              <button onClick={this.formAppear} value="login">Login</button>
+              <button onClick={this.formAppear} value="signup">Sign Up</button>
+            </React.Fragment>
+          )}
+          {this.props.currentUser && (
+            <React.Fragment>
+              <a href="#">Add Haiku</a>
+              <button onClick={this.props.logout}>Logout</button>
+            </React.Fragment>
+          )}
         </div>
         {this.state.formType === 'login' && (
           <div className="loginBox">

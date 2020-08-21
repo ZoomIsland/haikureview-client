@@ -22,10 +22,17 @@ h2 {
   display: flex;
   padding-right: 20px;
 }
-h2 {
+.navLinks button {
+  border: none;
+  background: none;
+  color: white;
   font-size: 20px;
   padding: 0px 13px;
   font-weight: 400;
+  cursor: pointer;
+}
+.navLinks button:hover {
+  text-decoration: underline;
 }
 
 .loginBox,
