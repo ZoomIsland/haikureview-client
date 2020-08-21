@@ -21,9 +21,36 @@ class Nav extends Component {
     })
   }
 
+  // implementing for login right now
   handleSubmit = (e) => {
     e.preventDefault();
-
+    const data = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    switch (this.state.formType) {
+      case "login":
+        axios.post(`${process.env.REACT_APP_API}login/`, data)
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+        break;
+      case "signup":
+        data.email = this.state.email;
+        axios.post(`${process.env.REACT_APP_API}register/`, data)
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+        break;
+      default:
+        console.log("Must submit a login or signup!")
+    }
   }
 
   render() {
@@ -46,22 +73,26 @@ class Nav extends Component {
         </div>
         {this.state.formType === 'login' && (
           <div className="loginBox">
-            <label htmlFor="username" />
-            <input onChange={this.handleChange} id="username" name="username" placeholder="Username" value={this.state.username} />
-            <label htmlFor="password" />
-            <input onChange={this.handleChange} id="password" name="password" placeholder="Password" value={this.state.password} />
-            <button>Log in</button>
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="username" />
+              <input onChange={this.handleChange} id="username" name="username" placeholder="Username" value={this.state.username} />
+              <label htmlFor="password" />
+              <input onChange={this.handleChange} id="password" name="password" placeholder="Password" value={this.state.password} />
+              <button type="submit">Log in</button>
+            </form>
           </div>
         )}
         {this.state.formType === 'signup' && (
           <div className="signupBox">
-            <label htmlFor="signuser" />
-            <input onChange={this.handleChange} id="signuser" name="username" placeholder="Username" value={this.state.username} />
-            <label htmlFor="signemail" />
-            <input onChange={this.handleChange} id="signemail" name="email" placeholder="Email" value={this.state.email} />
-            <label htmlFor="signpass" />
-            <input onChange={this.handleChange} id="signpass" name="password" placeholder="Password" value={this.state.password} />
-            <button>Register</button>
+              <form onSubmit={this.handleSubmit}>
+              <label htmlFor="signuser" />
+              <input onChange={this.handleChange} id="signuser" name="username" placeholder="Username" value={this.state.username} />
+              <label htmlFor="signemail" />
+              <input onChange={this.handleChange} id="signemail" name="email" placeholder="Email" value={this.state.email} />
+              <label htmlFor="signpass" />
+              <input onChange={this.handleChange} id="signpass" name="password" placeholder="Password" value={this.state.password} />
+              <button>Register</button>
+            </form>
           </div>
         )}
       </nav>
