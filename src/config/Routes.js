@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import MainHub from '../containers/MainHub/MainHub'
 import MovieSearch from '../containers/MovieSearch/MovieSearch'
 import MovieShow from '../containers/MovieShow/MovieShow'
-import NewHaiku from '../components/NewHaiku/NewHaiku'
+import NewHaiku from '../containers/NewHaiku/NewHaiku'
 
 function Routes(props) {
   return (
