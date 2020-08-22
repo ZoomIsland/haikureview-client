@@ -66,7 +66,7 @@ class Nav extends Component {
           <NavLink className="mainLink" to="/">Haiku Review</NavLink>
         </div>
         <div className="navLinks">
-          <NavLink to="/movies/"><div className="navSearch">Search Movies</div></NavLink>
+          <NavLink to="/movies/" onClick={this.formAppear} value=""><div className="navSearch">Search Movies</div></NavLink>
           {/* <a href="#">Random Haiku</a> */}
           {!this.props.currentUser && (
             <React.Fragment>
