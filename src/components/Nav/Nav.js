@@ -16,6 +16,7 @@ class Nav extends Component {
   }
 
   handleChange = (e) => {
+    e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -32,6 +33,7 @@ class Nav extends Component {
       case "login":
         axios.post(`${process.env.REACT_APP_API}login/`, data)
           .then((res) => {
+            this.setState({formType: ""})
             console.log(res);
             this.props.setCurrentUser(res.data.token);
           })
@@ -43,6 +45,7 @@ class Nav extends Component {
         data.email = this.state.email;
         axios.post(`${process.env.REACT_APP_API}register/`, data)
           .then((res) => {
+            this.setState({formType: ""})
             console.log(res)
             this.props.setCurrentUser(res.data.token);
           })
