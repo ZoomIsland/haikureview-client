@@ -10,7 +10,7 @@ function Routes(props) {
   return (
     <Switch>
       <Route exact path='/' component={MainHub} />
-      <Route path='/movies/:id' render={() => <MovieShow currentUser={props.currentUser} />} />
+      <Route path='/movies/:id/' render={(props) => <MovieShow {...props} currentUser={props.currentUser} />} />
       <Route path='/movies/' component={MovieSearch} />
       <Route path='/newhaiku/' component={NewHaiku} />
     </Switch>

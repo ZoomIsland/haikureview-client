@@ -13,7 +13,8 @@ class MovieShow extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}movies/1/`)
+    const movie_id = this.props.match.params.id
+    axios.get(`${process.env.REACT_APP_API}movies/${movie_id}/`)
       .then((res) => {
         this.setState({movie: res.data})
       })

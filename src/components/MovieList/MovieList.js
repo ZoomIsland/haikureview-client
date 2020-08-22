@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MovieList.css'
 
 import MovieCard from '../MovieCard/MovieCard'
@@ -6,7 +7,9 @@ import MovieCard from '../MovieCard/MovieCard'
 function MovieList(props) {
   const movieList = props.movies.map(movie => {
     return (
-      <MovieCard key={movie.id} movie={movie} />
+      <Link to={`/movies/${movie.id}`} key={movie.id}>
+        <MovieCard key={movie.id} movie={movie} />
+      </Link>
     )
   })
 
