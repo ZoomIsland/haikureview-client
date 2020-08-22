@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
-import HaikuModel from '../../models/haikus';
+import axios from 'axios';
+
+import GameCarousel from '../../components/GameCarousel/GameCarousel'
 
 class MainHub extends Component {
   state = {
     haikus: []
   };
-  componentDidMount() {
-    HaikuModel.getAllHaikus()
-      // .then((response) => {
-      //   console.log(response)
-      // })
+  async componentDidMount() {
+    axios.get(`${process.env.REACT_APP_API}haikus/`)
+      .then((res) => {
+        this.setState({haikus: res})
+        console.log(this.state.haikus)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   render() {
     return (
-      <div>MainHub</div>
+      <div>
+        <GameCarousel />
+      </div>
     );
   };
 };
