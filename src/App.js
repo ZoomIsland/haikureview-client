@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
+import MainHub from './containers/MainHub/MainHub'
 import setAuthHeader from './utils/setAuthHeader';
 import './App.css';
 
@@ -37,6 +38,7 @@ class App extends Component {
         <Nav setCurrentUser={this.setCurrentUser} 
              currentUser={this.state.currentUser}
              logout={this.logout} />
+        <MainHub />
         App is redefined
       </div>
     );
