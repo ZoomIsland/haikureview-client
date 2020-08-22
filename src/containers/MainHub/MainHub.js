@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import GameCarousel from '../../components/GameCarousel/GameCarousel'
+import HaikuCarousel from '../../components/HaikuCarousel/HaikuCarousel'
 
 class MainHub extends Component {
   state = {
@@ -11,7 +11,6 @@ class MainHub extends Component {
     axios.get(`${process.env.REACT_APP_API}haikus/`)
       .then((res) => {
         this.setState({haikus: res.data})
-        console.log(this.state.haikus)
       })
       .catch((err) => {
         console.log(err)
@@ -21,7 +20,7 @@ class MainHub extends Component {
   render() {
     return (
       <div>
-        <GameCarousel haikus={this.state.haikus} />
+        <HaikuCarousel haikus={this.state.haikus} />
       </div>
     );
   };

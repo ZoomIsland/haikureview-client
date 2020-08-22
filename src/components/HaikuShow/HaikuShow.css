@@ -1,0 +1,50 @@
+.haikuCard {
+  width: 800px;
+  height: 300px;
+  background: #F1E7CD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.innerHaikuCard {
+  width: 780px;
+  height: 280px;
+  border: 4px solid #B7910A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.haikuTitle,
+.haikuText {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.haikuTitle {
+  font-size: 44px;
+  margin-top: 15px;
+}
+.haikuText {
+  font-size: 30px;
+}
+.haikuText:nth-child(4) {
+  margin-bottom: 15px;
+}
+
+.haikuCardMovie,
+.haikuCardUser {
+  position: absolute;
+  bottom: 15px;
+}
+.haikuCardMovie {
+  left: 15px;
+}
+.haikuCardUser {
+  right: 15px;
+}

@@ -39,7 +39,6 @@ class App extends Component {
              currentUser={this.state.currentUser}
              logout={this.logout} />
         <MainHub />
-        App is redefined
       </div>
     );
   }
