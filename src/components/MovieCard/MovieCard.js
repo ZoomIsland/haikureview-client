@@ -1,9 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MovieCard.css'
 
-function MovieCard() {
+function MovieCard(props) {
   return (
-    <div className="movieCard">This is a movie card</div>
+    <Link to='/movies/1'>
+      <div className="movieCard">
+        <img src={props.movie.poster} />
+        <h2>{props.movie.title}</h2>
+      </div>
+    </Link>
   )
 }
 

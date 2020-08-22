@@ -21,7 +21,6 @@ class App extends Component {
     localStorage.setItem('token', token);
     setAuthHeader(token);
     const decodedToken = jwt_decode(token);
-    console.log(decodedToken)
     this.setState({currentUser: decodedToken.user_id})
   }
 
@@ -39,7 +38,7 @@ class App extends Component {
              currentUser={this.state.currentUser}
              logout={this.logout} />
         <div className="mainContainer">
-          <Routes />
+          <Routes currentUser={this.state.currentUser} />
         </div>
       </div>
     );

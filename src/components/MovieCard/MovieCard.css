@@ -1,6 +1,11 @@
 .movieCard {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 270px;
   background-color: #c4c4c4;
   margin-bottom: 50px;
+}
+.movieCard img {
+  height: 250px;
+  margin: 10px;
+  float: left;
 }
