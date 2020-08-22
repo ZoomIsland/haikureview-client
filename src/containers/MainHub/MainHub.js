@@ -10,7 +10,7 @@ class MainHub extends Component {
   async componentDidMount() {
     axios.get(`${process.env.REACT_APP_API}haikus/`)
       .then((res) => {
-        this.setState({haikus: res})
+        this.setState({haikus: res.data})
         console.log(this.state.haikus)
       })
       .catch((err) => {
@@ -21,7 +21,7 @@ class MainHub extends Component {
   render() {
     return (
       <div>
-        <GameCarousel />
+        <GameCarousel haikus={this.state.haikus} />
       </div>
     );
   };
