@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
-import MainHub from './containers/MainHub/MainHub'
+import Routes from './config/Routes'
 import setAuthHeader from './utils/setAuthHeader';
 import './App.css';
 
@@ -34,11 +34,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Nav setCurrentUser={this.setCurrentUser} 
              currentUser={this.state.currentUser}
              logout={this.logout} />
-        <MainHub />
+        <div className="mainContainer">
+          <Routes />
+        </div>
       </div>
     );
   }

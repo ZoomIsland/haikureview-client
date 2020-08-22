@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 import './Nav.css'
@@ -62,14 +63,10 @@ class Nav extends Component {
     return (
       <nav>
         <div className="siteName">
-          <a href="/">Haiku Review</a>
-        </div>
-        <div className="movieSearch">
-          <label htmlFor="movieTitle" />
-          <input id="movieTitle" placeholder="Search Movies" />
-          <button>Go</button>
+          <NavLink className="mainLink" to="/">Haiku Review</NavLink>
         </div>
         <div className="navLinks">
+          <NavLink to="/movies/"><div className="navSearch">Search Movies</div></NavLink>
           {/* <a href="#">Random Haiku</a> */}
           {!this.props.currentUser && (
             <React.Fragment>
@@ -79,7 +76,7 @@ class Nav extends Component {
           )}
           {this.props.currentUser && (
             <React.Fragment>
-              <a href="#">Add Haiku</a>
+              <a className="navAdd" href="#">Add Haiku</a>
               <button onClick={this.props.logout}>Logout</button>
             </React.Fragment>
           )}

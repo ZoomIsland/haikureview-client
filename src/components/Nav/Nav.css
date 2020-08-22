@@ -23,21 +23,40 @@ nav a {
   justify-content: flex-end;
   margin-right: 20px;
   z-index: 25;
-  width: 350px;
+  width: 450px;
   background: black;
+  align-items: center;
+  height: 50px;
 }
+.navSearch,
+.navAdd,
 .navLinks button {
-  border: none;
-  background: none;
   height: 50px;
   color: white;
   font-size: 20px;
   padding: 0px 6px;
   margin: 0px 7px;
+}
+.navSearch,
+.navAdd {
+  display: flex;
+  align-items: center;
+}
+.navSearch {
+  width: 135px;
+}
+.navAdd {
+  width: 95px;
+}
+.navLinks button {
+  border: none;
+  background: none;
   font-weight: 400;
   cursor: pointer;
 }
-.navLinks button:hover {
+.navLinks button:hover,
+.navSearch:hover,
+.navAdd:hover {
   background: darkgrey;
 }
 
