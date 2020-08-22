@@ -11,8 +11,8 @@ function HaikuShow (props) {
         <p className='haikuText'>{props.haiku.line_one}</p>
         <p className='haikuText'>{props.haiku.line_two}</p>
         <p className='haikuText'>{props.haiku.line_three}</p>
-        <p className='haikuCardMovie'>{props.haiku.movie}</p>
-        <p className='haikuCardUser'>{props.haiku.user}</p>
+        <p className='haikuCardMovie'>{props.haiku.movie.title}</p>
+        <p className='haikuCardUser'>{props.haiku.user.display_name}</p>
       </div>
     </div>
   )
