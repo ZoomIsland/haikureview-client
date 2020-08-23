@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import MainHub from '../containers/MainHub/MainHub'
 import MovieSearch from '../containers/MovieSearch/MovieSearch'
 import MovieShow from '../containers/MovieShow/MovieShow'
+import HaikuShowContainer from '../containers/HaikuShowContainer/HaikuShowContainer'
 import NewHaiku from '../containers/NewHaiku/NewHaiku'
 import ProfilePage from '../containers/ProfilePage/ProfilePage'
 
@@ -17,6 +18,7 @@ function Routes(props) {
           render={(props) => <MovieShow {...props} currentUser={currentUser} />
         } />
       <Route path='/movies/' component={MovieSearch} />
+      <Route path='/haikus/:id/' component={HaikuShowContainer} />
       <Route path='/newhaiku/' render={(props) => <NewHaiku {...props} currentUser={currentUser} />} />
       <Route path='/profile/' component={ProfilePage} />
     </Switch>

@@ -6,7 +6,7 @@ const url = process.env.REACT_APP_API;
 
 class HaikuModel {
   static getAllHaikus = () => {
-    return axios.get(`${url}/haikus/`)
+    return axios.get(`${process.env.REACT_APP_API}/haikus/`)
   }
 }
 

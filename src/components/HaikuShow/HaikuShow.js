@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './HaikuShow.css'
 
@@ -7,12 +8,15 @@ function HaikuShow (props) {
   return (
     <div className='haikuCard flex-center'>
       <div className='innerHaikuCard'>
-        <h2 className='haikuTitle'>{props.haiku.title}</h2>
+        <Link to={`/haikus/${props.haiku.id}`}>
+          <h2 className='haikuTitle'>{props.haiku.title}</h2>
+        </Link>
         <p className='haikuText'>{props.haiku.line_one}</p>
         <p className='haikuText'>{props.haiku.line_two}</p>
         <p className='haikuText'>{props.haiku.line_three}</p>
-        <p className='haikuCardMovie'>{props.haiku.movie.title}</p>
-        <p className='haikuCardUser'>{props.haiku.user.display_name}</p>
+        {/* Add below back in once related works */}
+        {/* <p className='haikuCardMovie'>{props.haiku.movie.title}</p>
+        <p className='haikuCardUser'>{props.haiku.user.display_name}</p> */}
       </div>
     </div>
   )

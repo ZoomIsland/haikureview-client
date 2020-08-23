@@ -79,6 +79,7 @@ class Nav extends Component {
           {this.props.currentUser && (
             <React.Fragment>
               <NavLink to="/newhaiku/"><div className="navAdd">Add Haiku</div></NavLink>
+              <NavLink to="/profile/"><div className="navProfile">Profile</div></NavLink>
               <button onClick={this.props.logout}>Logout</button>
             </React.Fragment>
           )}
