@@ -8,8 +8,7 @@ import './MovieShow.css'
 
 class MovieShow extends Component {
   state = {
-    movie: {},
-    haikus: []
+    movie: {}
   }
 
   componentDidMount() {
@@ -22,16 +21,10 @@ class MovieShow extends Component {
       .catch((err) => {
         console.log(err)
       })
-      axios.get(`${process.env.REACT_APP_API}/haikus/`)
-      .then((res) => {
-        this.setState({haikus: res.data})
-      })
-      .catch((err) => {
-        console.log(err)
-      })
   }
 
   render() {
+    console.log(this.state.movie)
     console.log(this.props.currentUser)
     return (
       <div className="movieShow">
@@ -40,7 +33,9 @@ class MovieShow extends Component {
           {this.props.currentUser && (
             <AddHaikuCard />
           )}
-          <HaikuCarousel haikus={this.state.haikus} />
+          {this.state.movie.haikus && 
+            <HaikuCarousel haikus={this.state.movie.haikus} />
+          }
         </div>
       </div>
     )
