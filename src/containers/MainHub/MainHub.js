@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import HaikuModel from '../../models/haikus';
+
 import HaikuCarousel from '../../components/HaikuCarousel/HaikuCarousel'
 
 class MainHub extends Component {
   state = {
     haikus: []
   };
-  async componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}haikus/`)
+  componentDidMount() {
+    axios.get(`${process.env.REACT_APP_API}/haikus/`)
       .then((res) => {
         this.setState({haikus: res.data})
       })

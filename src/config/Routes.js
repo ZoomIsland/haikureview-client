@@ -7,12 +7,16 @@ import MovieShow from '../containers/MovieShow/MovieShow'
 import NewHaiku from '../containers/NewHaiku/NewHaiku'
 
 function Routes(props) {
+  const { currentUser } = props;
   return (
     <Switch>
       <Route exact path='/' component={MainHub} />
-      <Route path='/movies/:id/' render={(props) => <MovieShow {...props} currentUser={props.currentUser} />} />
+      <Route 
+          path='/movies/:id/' 
+          render={(props) => <MovieShow {...props} currentUser={currentUser} />
+        } />
       <Route path='/movies/' component={MovieSearch} />
-      <Route path='/newhaiku/' component={NewHaiku} />
+      <Route path='/newhaiku/' render={(props) => <NewHaiku {...props} currentUser={currentUser} />} />
     </Switch>
   )
 }

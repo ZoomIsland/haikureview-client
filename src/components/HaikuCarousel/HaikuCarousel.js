@@ -7,7 +7,7 @@ function HaikuCarousel (props) {
   })
 
   return (
-    <div >
+    <div>
       {haikuList}
     </div>
   )

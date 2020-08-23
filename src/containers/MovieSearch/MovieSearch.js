@@ -11,7 +11,7 @@ class MovieSearch extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}movies/`)
+    axios.get(`${process.env.REACT_APP_API}/movies/`)
       .then((res) => {
         this.setState({movies: res.data})
       })

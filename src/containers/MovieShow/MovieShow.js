@@ -15,14 +15,14 @@ class MovieShow extends Component {
   componentDidMount() {
     // check axios for a way of doing this easier!
     const movie_id = this.props.match.params.id
-    axios.get(`${process.env.REACT_APP_API}movies/${movie_id}/`)
+    axios.get(`${process.env.REACT_APP_API}/movies/${movie_id}/`)
       .then((res) => {
         this.setState({movie: res.data})
       })
       .catch((err) => {
         console.log(err)
       })
-      axios.get(`${process.env.REACT_APP_API}haikus/`)
+      axios.get(`${process.env.REACT_APP_API}/haikus/`)
       .then((res) => {
         this.setState({haikus: res.data})
       })

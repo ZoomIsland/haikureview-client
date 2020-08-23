@@ -4,19 +4,36 @@ import MovieSelect from '../MovieSelect/MovieSelect'
 import './AddHaikuForm.css'
 
 function AddHaikuForm(props) {
-  console.log("this has loaded")
   return (
-    <form className="flex-center-column addHaikuForm">
-      <MovieSelect movies={props.movies} />
+    <form className="flex-center-column addHaikuForm" onSubmit={props.handleSubmit}>
+      <MovieSelect 
+          movies={props.movies}
+          handleInputChange={props.handleInputChange} />
       <label htmlFor="haikuTitle" className="titleInputText">Title:</label>
-      <input id="haikuTitle" className="haikuTitleInput" placeholder="e.g. Polishing Bowling Balls"></input>
+      <input id="haikuTitle" 
+          className="haikuTitleInput" 
+          name="title"
+          onChange={props.handleInputChange}
+          placeholder="e.g. Polishing Bowling Balls"></input>
       <p className="haikuInputText">Haiku</p>
       <label htmlFor="lineOne" />
-      <input id="lineOne" className="lineOneInput" placeholder="Never have I seen"></input>
+      <input id="lineOne"
+          className="lineOneInput" 
+          name="lineOne"
+          onChange={props.handleInputChange}
+          placeholder="Never have I seen"></input>
       <label htmlFor="lineTwo"></label>
-      <input id="lineTwo" className="lineTwoInput" placeholder="A thing like Jesus, a cloth,"></input>
+      <input id="lineTwo" 
+          className="lineTwoInput" 
+          name="lineTwo"
+          onChange={props.handleInputChange}
+          placeholder="A thing like Jesus, a cloth,"></input>
       <label htmlFor="lineThree"></label>
-      <input id="lineThree" className="lineThreeInput" placeholder="And his bowling ball."></input>
+      <input id="lineThree" 
+          className="lineThreeInput" 
+          name="lineThree"
+          onChange={props.handleInputChange}
+          placeholder="And his bowling ball."></input>
       <button>Submit</button>
     </form>
   )

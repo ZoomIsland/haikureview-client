@@ -2,15 +2,11 @@ import axios from 'axios';
 // do I need a token?
 // const token = localStorage.getItem('token')
 
+const url = process.env.REACT_APP_API;
+
 class HaikuModel {
   static getAllHaikus = () => {
-    return axios.get(`${process.env.REACT_APP_API}haikus/`)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+    return axios.get(`${url}/haikus/`)
   }
 }
 

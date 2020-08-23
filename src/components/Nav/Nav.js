@@ -34,7 +34,7 @@ class Nav extends Component {
     }
     switch (this.state.formType) {
       case "login":
-        axios.post(`${process.env.REACT_APP_API}login/`, data)
+        axios.post(`${process.env.REACT_APP_API}/login/`, data)
           .then((res) => {
             this.setState({formType: ""})
             console.log(res);
@@ -46,7 +46,7 @@ class Nav extends Component {
         break;
       case "signup":
         data.email = this.state.email;
-        axios.post(`${process.env.REACT_APP_API}register/`, data)
+        axios.post(`${process.env.REACT_APP_API}/register/`, data)
           .then((res) => {
             this.setState({formType: ""})
             console.log(res)
@@ -65,7 +65,7 @@ class Nav extends Component {
     return (
       <nav>
         <div className="siteName">
-          <NavLink className="mainLink" to="/">Haiku Review</NavLink>
+          <NavLink className="mainLink" to="/" onClick={this.formAppear} value="">Haiku Review</NavLink>
         </div>
         <div className="navLinks">
           <NavLink to="/movies/" onClick={this.formAppear} value=""><div className="navSearch">Search Movies</div></NavLink>
