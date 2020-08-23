@@ -1,0 +1,11 @@
+.profileDetail {
+  background: #c4c4c4;
+  width: 400px;
+  height: 800px;
+}
+
+.profileDetail img {
+  height: 300px;
+  margin: 10px;
+  float: left;
+}

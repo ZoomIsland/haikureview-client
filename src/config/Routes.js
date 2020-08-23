@@ -5,6 +5,7 @@ import MainHub from '../containers/MainHub/MainHub'
 import MovieSearch from '../containers/MovieSearch/MovieSearch'
 import MovieShow from '../containers/MovieShow/MovieShow'
 import NewHaiku from '../containers/NewHaiku/NewHaiku'
+import ProfilePage from '../containers/ProfilePage/ProfilePage'
 
 function Routes(props) {
   const { currentUser } = props;
@@ -17,6 +18,7 @@ function Routes(props) {
         } />
       <Route path='/movies/' component={MovieSearch} />
       <Route path='/newhaiku/' render={(props) => <NewHaiku {...props} currentUser={currentUser} />} />
+      <Route path='/profile/' component={ProfilePage} />
     </Switch>
   )
 }
