@@ -3,7 +3,7 @@ import './SearchBar.css'
 
 function SearchBar() {
   return (
-    <form className="searchContainer">
+    <form className="flex-center searchContainer">
       <input />
       <button type="submit">Search</button>
     </form>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
+import LoginBox from './LoginBox/LoginBox'
+import SignupBox from './SignupBox/SignupBox'
 import './Nav.css'
 
 class Nav extends Component {
@@ -82,28 +84,19 @@ class Nav extends Component {
           )}
         </div>
         {this.state.formType === 'login' && (
-          <div className="loginBox">
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="username" />
-              <input onChange={this.handleChange} id="username" name="username" placeholder="Username" value={this.state.username} />
-              <label htmlFor="password" />
-              <input onChange={this.handleChange} id="password" name="password" placeholder="Password" value={this.state.password} />
-              <button type="submit">Log in</button>
-            </form>
-          </div>
+          <LoginBox 
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            username={this.state.username}
+            password={this.state.password} />
         )}
         {this.state.formType === 'signup' && (
-          <div className="signupBox">
-              <form onSubmit={this.handleSubmit}>
-              <label htmlFor="signuser" />
-              <input onChange={this.handleChange} id="signuser" name="username" placeholder="Username" value={this.state.username} />
-              <label htmlFor="signemail" />
-              <input onChange={this.handleChange} id="signemail" name="email" placeholder="Email" value={this.state.email} />
-              <label htmlFor="signpass" />
-              <input onChange={this.handleChange} id="signpass" name="password" placeholder="Password" value={this.state.password} />
-              <button>Register</button>
-            </form>
-          </div>
+          <SignupBox
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          username={this.state.username}
+          email={this.state.email}
+          password={this.state.password} />
         )}
       </nav>
     )

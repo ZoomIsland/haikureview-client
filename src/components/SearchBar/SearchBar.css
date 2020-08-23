@@ -3,9 +3,6 @@
   width: 65%;
   height: 60px;
   background: #c4c4c4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .searchContainer input,

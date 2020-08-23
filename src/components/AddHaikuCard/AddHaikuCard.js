@@ -5,8 +5,8 @@ import './AddHaikuCard.css';
 function AddHaikuCard() {
   return (
     <Link to='/newhaiku/'>
-      <div className='addHaikuMini'>
-        <div className="innerAdd">
+      <div className='flex-center addHaikuMini'>
+        <div className="flex-center innerAdd">
           <i className="fas fa-plus-square"></i>
           <p>Add Haiku</p>
         </div>

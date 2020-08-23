@@ -14,3 +14,22 @@
   background-image: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
   background-size: cover;
 }
+
+/* General styling */
+.cardContainer {
+  background: antiquewhite;
+}
+.innerCardContainer {
+  border: 4px solid #B7910A;
+}
+
+/* Function classes */
+.flex-center,
+.flex-center-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-center-column {
+  flex-direction: column;
+}

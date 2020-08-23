@@ -5,7 +5,7 @@ import './HaikuShow.css'
 function HaikuShow (props) {
   console.log(props)
   return (
-    <div className='haikuCard'>
+    <div className='haikuCard flex-center'>
       <div className='innerHaikuCard'>
         <h2 className='haikuTitle'>{props.haiku.title}</h2>
         <p className='haikuText'>{props.haiku.line_one}</p>

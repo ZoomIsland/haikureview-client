@@ -1,9 +1,10 @@
 import React from 'react';
+import './AddHaikuForm.css'
 
 function AddHaikuForm() {
   console.log("this has loaded")
   return (
-    <form>
+    <form className="flex-center-column addHaikuForm">
       <label htmlFor="movieTitle">Movie:</label>
       <input id="movieTitle" placeholder="e.g. The Big Lebowski" />
       <label htmlFor="haikuTitle">Title:</label>
