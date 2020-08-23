@@ -43,8 +43,6 @@ class NewHaiku extends Component {
       line_three: this.state.lineThree,
       user: this.props.currentUser
     }
-    const input = JSON.stringify(data)
-    // axios.defaults.headers.common['Content-Type'] = "application/json"
     axios.post(`${process.env.REACT_APP_API}/haikus/`, data)
       .then(res => console.log(res))
       .catch(err => console.log(err))

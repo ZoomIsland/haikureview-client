@@ -8,28 +8,34 @@ import './ProfilePage.css';
 
 class ProfilePage extends Component {
   state = {
-    haikus: []
-  }
+      userData: {}
+    }
 
-  componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}/haikus/`)
-    .then((res) => {
-      this.setState({haikus: res.data})
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentUser !== this.props.currentUser) {
+      axios.get(`${process.env.REACT_APP_API}/profiles/${this.props.currentUser}/`)
+      .then((res) => {
+        this.setState({userData: res.data})
+      }) 
+      .catch((err) => {
+        console.log(err)
+      })
+    }
   }
 
   render() {
     return (
       <div className="profileContainer">
-        <ProfileDetail />
+        {this.state.userData.profile && 
+          <ProfileDetail data={this.state.userData} />
+        }
         <div className="movieHaikus">
           {this.props.currentUser && (
             <AddHaikuCard />
           )}
-          <HaikuCarousel haikus={this.state.haikus} />
+          {this.state.userData.haikus &&
+            <HaikuCarousel haikus={this.state.userData.haikus} />
+          }
         </div>
       </div>
     )

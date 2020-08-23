@@ -5,9 +5,7 @@ import HaikuShow from '../../components/HaikuShow/HaikuShow'
 
 class HaikuShowContainer extends Component {
   state = {
-    haiku: {
-      title: "",
-    }
+    haiku: {}
   }
 
   componentDidMount() {
@@ -27,7 +25,9 @@ class HaikuShowContainer extends Component {
     console.log(this.state.haiku)
     return (
       <div className="haikuShowContainer">
-        <HaikuShow haiku={this.state.haiku} />
+        {this.state.haiku.title && 
+          <HaikuShow haiku={this.state.haiku} />
+        }
       </div>
     )
   }

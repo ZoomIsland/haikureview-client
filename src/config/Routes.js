@@ -20,7 +20,7 @@ function Routes(props) {
       <Route path='/movies/' component={MovieSearch} />
       <Route path='/haikus/:id/' component={HaikuShowContainer} />
       <Route path='/newhaiku/' render={(props) => <NewHaiku {...props} currentUser={currentUser} />} />
-      <Route path='/profile/' component={ProfilePage} />
+      <Route path='/profile/' render={(props) => <ProfilePage {...props} currentUser={currentUser} />} />
     </Switch>
   )
 }
