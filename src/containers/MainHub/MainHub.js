@@ -21,7 +21,6 @@ class MainHub extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <Routes currentUser={this.props.currentUser} />
         <HaikuCarousel haikus={this.state.haikus} currentUser={this.props.currentUser}  />
       </div>
     );
