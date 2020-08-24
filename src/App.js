@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
+import MainHub from './containers/MainHub/MainHub'
 import Routes from './config/Routes'
 import setAuthHeader from './utils/setAuthHeader';
 import './App.css';
@@ -37,9 +38,10 @@ class App extends Component {
         <Nav setCurrentUser={this.setCurrentUser} 
              currentUser={this.state.currentUser}
              logout={this.logout} />
-        <div className="mainContainer">
+        <MainHub currentUser={this.state.currentUser} />
+        {/* <div className="mainContainer">
           <Routes currentUser={this.state.currentUser} />
-        </div>
+        </div> */}
       </div>
     );
   }

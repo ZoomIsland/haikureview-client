@@ -44,14 +44,14 @@ class ProfilePage extends Component {
             <MovieList movies={this.state.userData.movies} />
           }
         </div>
-        <div className="movieHaikus">
+        {/* <div className="movieHaikus">
           {this.props.currentUser === this.state.userData.id && (
             <AddHaikuCard />
           )}
           {this.state.userData.haikus &&
             <HaikuCarousel haikus={this.state.userData.haikus} currentUser={this.props.currentUser} />
           }
-        </div>
+        </div> */}
       </div>
     )
   }

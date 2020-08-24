@@ -13,22 +13,10 @@ function Routes(props) {
   const { currentUser } = props;
   return (
     <Switch>
-      <Route 
-        path='/profiles/:id' 
-        render={(props) => <ProfilePage {...props} currentUser={currentUser} />} />
-      <Route 
-        path='/movies/' 
-        component={MovieSearch} />
-      <Route 
-        path='/newhaiku/' 
-        render={(props) => <NewHaiku {...props} currentUser={currentUser} />} />
-      <Route 
-        path='/updatehaiku/:id' 
-        render={(props) => <UpdateHaiku {...props} currentUser={currentUser} />} />
-      {/* <Route
+      <Route
         exact path='/' 
-        render={(props) => <MainHub {...props} currentUser={currentUser} />} /> */}
-      {/* <Route 
+        render={(props) => <MainHub {...props} currentUser={currentUser} />} />
+      <Route 
           path='/movies/:id/' 
           render={(props) => <MovieShow {...props} currentUser={currentUser} />} />
       <Route 
@@ -39,7 +27,7 @@ function Routes(props) {
         render={(props) => <HaikuShowContainer {...props} currentUser={currentUser} />} />
       <Route path='/newhaiku/' render={(props) => <NewHaiku {...props} currentUser={currentUser} />} />
       <Route path='/updatehaiku/:id' render={(props) => <UpdateHaiku {...props} currentUser={currentUser} />} />
-      <Route path='/profiles/:id' render={(props) => <ProfilePage {...props} currentUser={currentUser} />} /> */}
+      <Route path='/profiles/:id' render={(props) => <ProfilePage {...props} currentUser={currentUser} />} />
     </Switch>
   )
 }
