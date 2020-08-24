@@ -4,4 +4,10 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100vw;
+  background: purple;
+}
+
+.searchMovieList {
+  margin: 10px;
+  width: calc(100vw - 20px);
 }
