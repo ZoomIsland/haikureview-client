@@ -4,6 +4,7 @@
   background: #F1E7CD;
   box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
   position: relative;
+  margin: 50px;
 }
 
 .innerHaikuCard {
@@ -44,4 +45,25 @@
 }
 .haikuCardUser {
   right: 15px;
+}
+
+.haikuBtns {
+  position: absolute;
+  display: flex;
+  top: -30px;
+  right: 25px;
+}
+.haikuEditBtn,
+.haikuDeleteBtn {
+  height: 30px;
+  width: 60px;
+  border-radius: 5px 5px 0px 0px;
+  margin: 0px 10px;
+  background: rgb(189, 178, 163);
+  font-family: 'Roboto', sans-serif;
+}
+.haikuEditBtn:hover,
+.haikuDeleteBtn:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

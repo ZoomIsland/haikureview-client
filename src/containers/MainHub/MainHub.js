@@ -22,7 +22,7 @@ class MainHub extends Component {
   render() {
     return (
       <div>
-        <HaikuCarousel haikus={this.state.haikus} />
+        <HaikuCarousel haikus={this.state.haikus} currentUser={this.props.currentUser}  />
       </div>
     );
   };

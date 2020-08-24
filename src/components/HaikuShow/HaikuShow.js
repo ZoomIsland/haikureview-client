@@ -18,6 +18,12 @@ function HaikuShow (props) {
         <Link to ={`/movies/${props.haiku.movie.id}`}><p className='haikuCardMovie'>{props.haiku.movie.title}</p></Link>
         {/* <p className='haikuCardUser'>{props.haiku.user.display_name}</p> */}
       </div>
+      {props.currentUser === props.haiku.user && 
+        <div className="haikuBtns">
+          <div className="haikuEditBtn flex-center">Edit</div>
+          <div className="haikuDeleteBtn flex-center">Delete</div>
+        </div>
+      }
     </div>
   )
 }

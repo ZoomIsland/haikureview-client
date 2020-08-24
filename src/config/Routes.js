@@ -12,7 +12,7 @@ function Routes(props) {
   const { currentUser } = props;
   return (
     <Switch>
-      <Route exact path='/' component={MainHub} />
+      <Route exact path='/' render={(props) => <MainHub {...props} currentUser={currentUser} />} />
       <Route 
           path='/movies/:id/' 
           render={(props) => <MovieShow {...props} currentUser={currentUser} />

@@ -45,11 +45,11 @@ class ProfilePage extends Component {
           }
         </div>
         <div className="movieHaikus">
-          {this.props.currentUser && (
+          {this.props.currentUser === this.state.userData.id && (
             <AddHaikuCard />
           )}
           {this.state.userData.haikus &&
-            <HaikuCarousel haikus={this.state.userData.haikus} />
+            <HaikuCarousel haikus={this.state.userData.haikus} currentUser={this.props.currentUser} />
           }
         </div>
       </div>

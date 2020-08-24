@@ -34,7 +34,7 @@ class MovieShow extends Component {
             <AddHaikuCard />
           )}
           {this.state.movie.haikus && 
-            <HaikuCarousel haikus={this.state.movie.haikus} />
+            <HaikuCarousel haikus={this.state.movie.haikus} currentUser={this.props.currentUser} />
           }
         </div>
       </div>
