@@ -1,6 +1,8 @@
-.profileDetail {
-  width: calc(40vw - 20px);
-  height: 230px;
+.profileDetail,
+.profileForm {
+  width: 100%;
+  height: 180px;
+  padding-bottom: 50px;
   background: lightgray;
   margin: 10px;
   font-family: Roboto;
@@ -8,7 +10,7 @@
 }
 
 .profileDetail img {
-  height: 210px;
+  height: 180px;
   margin: 10px;
   float: left;
 }
@@ -17,11 +19,33 @@
   margin: 10px;
 }
 
-.updateProfileBtn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 30px;
-  width: 125px;
+.profileForm {
+  padding: 10px 10px 40px 10px;
+}
+.profileForm img {
+  height: 180px;
+  float: left;
+}
+.displayNameForm {
+  margin-bottom: 10px;
+}
+.displayNameForm label {
+  margin-left: 10px;
+}
+.displayNameForm input {
+  height: 25px;
+  width: 224px;
   font-size: 16px;
+}
+.bioForm label {
+  float: left;
+  margin: 0px 10px;
+}
+.bioForm textarea {
+  width: 234px;
+  height: 130px;
+  resize: none;
+  font-size: 16px;
+  font-family: Roboto;
+  padding: 3px;
 }
