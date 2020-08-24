@@ -1,7 +1,6 @@
 .movieList {
-  width: 65%;
+  width: 100%;
+  height: 172px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 50px;
+  overflow: scroll;
 }

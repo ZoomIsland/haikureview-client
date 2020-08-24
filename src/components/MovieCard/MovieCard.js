@@ -3,9 +3,11 @@ import './MovieCard.css'
 
 function MovieCard(props) {
   return (
-      <div className="movieCard">
-        <img src={props.movie.poster} />
-        <h2>{props.movie.title}</h2>
+      <div className="movieCard flex-center">
+        <img alt={props.movie.title} src={props.movie.poster} />
+        <div className="titleHolder flex-center">
+          <p>{props.movie.title}</p>
+        </div>
       </div>
   )
 }

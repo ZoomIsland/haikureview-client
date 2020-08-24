@@ -10,6 +10,7 @@ function ProfileDetail(props) {
       <p>{props.data.profile.bio}</p>
       <p>Member since {props.data.profile.join_date}</p>
       <p>{props.data.haikus.length} haikus written</p>
+      <button className="updateProfileBtn flex-center">Update Profile</button>
     </div>
   )
 }
