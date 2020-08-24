@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import HaikuModel from '../../models/haikus';
-
+import Routes from '../../config/Routes'
 import HaikuCarousel from '../../components/HaikuCarousel/HaikuCarousel'
 
 class MainHub extends Component {
@@ -21,7 +20,7 @@ class MainHub extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mainContainer">
         <HaikuCarousel haikus={this.state.haikus} currentUser={this.props.currentUser}  />
       </div>
     );

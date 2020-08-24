@@ -35,24 +35,27 @@ class ProfilePage extends Component {
 
   render() {
     return (
-      <div className="profileContainer">
+      <section className="profileContainer">
         <div className="profileData">
           {this.state.userData.profile && 
             <ProfileDetail data={this.state.userData} />
           }
-          {this.state.userData.movies && 
-            <MovieList movies={this.state.userData.movies} />
-          }
+          <div className="profileMovies">
+            <h2>By Movie</h2>
+            {this.state.userData.movies && 
+              <MovieList movies={this.state.userData.movies} />
+            }
+          </div>
         </div>
-        <div className="movieHaikus">
+        {/* <div className="movieHaikus">
           {this.props.currentUser === this.state.userData.id && (
             <AddHaikuCard />
           )}
           {this.state.userData.haikus &&
             <HaikuCarousel haikus={this.state.userData.haikus} currentUser={this.props.currentUser} />
           }
-        </div>
-      </div>
+        </div> */}
+      </section>
     )
   }
 }

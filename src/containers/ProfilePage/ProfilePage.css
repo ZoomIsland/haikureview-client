@@ -1,3 +1,28 @@
+@keyframes profileOpen {
+  from {height: 0px;}
+  to {height: 250px;}
+}
+
+.profileData,
 .profileContainer {
   display: flex;
+}
+.profileContainer {
+  width: 100vw;
+  background: blue;
+  height: 250px;
+  animation: profileOpen 1 1s;
+  overflow: hidden;
+}
+
+.profileMovies {
+  width: calc(60vw - 40px);
+  padding: 10px;
+  background: lightgray;
+  height: 210px;
+  margin: 10px;
+}
+.profileMovies h2 {
+  margin-bottom: 10px;
+  font-family: Roboto;
 }

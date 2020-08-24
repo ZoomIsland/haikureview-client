@@ -1,18 +1,24 @@
+:root {
+  nav-height: 50px;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
 .app {
+  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-image: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
+  background-size: cover;
+  position: relative;
 }
 
 .mainContainer {
   flex: 1 0 auto;
-  background-image: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
-  background-size: cover;
 }
 
 /* General styling */

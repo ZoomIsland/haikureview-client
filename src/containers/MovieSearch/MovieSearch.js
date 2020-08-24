@@ -24,7 +24,9 @@ class MovieSearch extends Component {
     return(
       <div className="movieSearch">
         <SearchBar />
-        <MovieList movies={this.state.movies} />
+        <div className="searchMovieList">
+          <MovieList movies={this.state.movies} />
+        </div>
       </div>
     )
   }

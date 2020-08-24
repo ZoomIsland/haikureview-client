@@ -1,11 +1,27 @@
 .profileDetail {
-  background: #c4c4c4;
-  width: 400px;
-  height: 800px;
+  width: calc(40vw - 20px);
+  height: 230px;
+  background: lightgray;
+  margin: 10px;
+  font-family: Roboto;
+  position: relative;
 }
 
 .profileDetail img {
-  height: 300px;
+  height: 210px;
   margin: 10px;
   float: left;
+}
+.profileDetail h2,
+.profileDetail p {
+  margin: 10px;
+}
+
+.updateProfileBtn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 30px;
+  width: 125px;
+  font-size: 16px;
 }

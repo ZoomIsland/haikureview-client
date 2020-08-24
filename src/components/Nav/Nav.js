@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-import LoginBox from './LoginBox/LoginBox'
-import SignupBox from './SignupBox/SignupBox'
+import LoginBox from './LoginBox/LoginBox';
+import SignupBox from './SignupBox/SignupBox';
+import Routes from'../../config/Routes';
 import './Nav.css'
 
 class Nav extends Component {
@@ -99,6 +100,9 @@ class Nav extends Component {
           email={this.state.email}
           password={this.state.password} />
         )}
+        <div className="haikuOrderDrawers">
+          <Routes currentUser={this.props.currentUser} />
+        </div>
       </nav>
     )
   }

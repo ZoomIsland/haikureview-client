@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
-import Routes from './config/Routes'
 import setAuthHeader from './utils/setAuthHeader';
+import HaikuRoutes from './config/HaikuRoutes'
 import './App.css';
 
 class App extends Component {
@@ -37,9 +37,7 @@ class App extends Component {
         <Nav setCurrentUser={this.setCurrentUser} 
              currentUser={this.state.currentUser}
              logout={this.logout} />
-        <div className="mainContainer">
-          <Routes currentUser={this.state.currentUser} />
-        </div>
+        <HaikuRoutes currentUser={this.state.currentUser} />
       </div>
     );
   }

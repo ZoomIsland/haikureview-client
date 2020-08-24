@@ -2,11 +2,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: var(--nav-height);
   width: 100vw;
   background: black;
   font-family: Helvetica, sans-serif;
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 25;
 }
 nav a {
@@ -104,4 +105,9 @@ nav a {
   border-radius: 10px;
   margin-bottom: 15px;
   cursor: pointer;
+}
+
+.haikuOrderDrawers {
+  position: absolute;
+  top: 50px;
 }
