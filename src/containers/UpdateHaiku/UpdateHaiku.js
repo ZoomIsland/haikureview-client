@@ -51,7 +51,9 @@ class UpdateHaiku extends Component {
       user: this.props.currentUser
     }
     axios.put(`${process.env.REACT_APP_API}/newhaiku/${haiku_id}/`, data)
-      .then(res => console.log(res))
+      .then(res => {
+        this.props.history.goBack()
+      })
       .catch(err => console.log(err))
   }
 

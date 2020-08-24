@@ -44,7 +44,10 @@ class NewHaiku extends Component {
       user: this.props.currentUser
     }
     axios.post(`${process.env.REACT_APP_API}/newhaiku/`, data)
-      .then(res => console.log(res))
+      .then(res => {
+        this.props.history.goBack()
+        console.log(res)
+      })
       .catch(err => console.log(err))
   }
 
