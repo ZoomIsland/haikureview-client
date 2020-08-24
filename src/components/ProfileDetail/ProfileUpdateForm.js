@@ -13,7 +13,8 @@ function ProfileForm(props) {
         withLabel={false}
         singleImage={true}
         withPreview={true}
-        buttonText={"Choose Image"} />
+        buttonText={"Choose Image"}
+        onChange={props.onDrop} />
       <section className="formText">
         <div className="displayNameForm">
           <label htmlFor="proFormName">Name: </label>

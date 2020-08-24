@@ -12,6 +12,7 @@ class ProfilePage extends Component {
       bio: '',
       display_name: '',
       update: false,
+      pictures: [],
     }
 
   componentDidMount() {
@@ -39,6 +40,11 @@ class ProfilePage extends Component {
 
   onInputChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  onDrop(pictureFiles, pictureDataURLs) {
+    console.log(pictureFiles)
+    this.setState({pictures: pictureFiles})
   }
 
   onUpdateSubmit = () => {
@@ -94,7 +100,8 @@ class ProfilePage extends Component {
               data={this.state.userData} 
               bio={this.state.bio} 
               display_name={this.state.display_name}
-              onInputChange={this.onInputChange} />
+              onInputChange={this.onInputChange}
+              onDrop={this.onDrop} />
           }
           <button className="updateProfileBtn flex-center" onClick={this.toggleUpdate}>Update Profile</button>
         </div>
