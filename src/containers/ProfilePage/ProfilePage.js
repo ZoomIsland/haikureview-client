@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import ProfileDetail from '../../components/ProfileDetail/ProfileDetail';
+import MovieList from '../../components/MovieList/MovieList'
 import AddHaikuCard from '../../components/AddHaikuCard/AddHaikuCard';
 import HaikuCarousel from '../../components/HaikuCarousel/HaikuCarousel';
 import './ProfilePage.css';
@@ -11,11 +12,23 @@ class ProfilePage extends Component {
       userData: {}
     }
 
+  // I may want to update how this gets data--in case I want others to be able to see user profile pages
   componentDidUpdate(prevProps) {
     if (prevProps.currentUser !== this.props.currentUser) {
       axios.get(`${process.env.REACT_APP_API}/profiles/${this.props.currentUser}/`)
       .then((res) => {
-        this.setState({userData: res.data})
+        const startData = res.data;
+        const movies = new Set();
+        console.log(JSON.stringify(res.data.haikus[0].movie))
+        startData.haikus.forEach(haiku => {
+          movies.add(JSON.stringify(haiku.movie));
+        })
+        const movieArray = [];
+        movies.forEach(movie => {
+          movieArray.push(JSON.parse(movie))
+        })
+        startData.movies = movieArray;
+        this.setState({userData: startData})
       }) 
       .catch((err) => {
         console.log(err)
@@ -26,9 +39,14 @@ class ProfilePage extends Component {
   render() {
     return (
       <div className="profileContainer">
-        {this.state.userData.profile && 
-          <ProfileDetail data={this.state.userData} />
-        }
+        <div className="profileData">
+          {this.state.userData.profile && 
+            <ProfileDetail data={this.state.userData} />
+          }
+          {this.state.userData.movies && 
+            <MovieList movies={this.state.userData.movies} />
+          }
+        </div>
         <div className="movieHaikus">
           {this.props.currentUser && (
             <AddHaikuCard />
