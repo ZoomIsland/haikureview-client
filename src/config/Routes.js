@@ -12,13 +12,18 @@ function Routes(props) {
   const { currentUser } = props;
   return (
     <Switch>
-      <Route exact path='/' render={(props) => <MainHub {...props} currentUser={currentUser} />} />
+      <Route
+        exact path='/' 
+        render={(props) => <MainHub {...props} currentUser={currentUser} />} />
       <Route 
           path='/movies/:id/' 
-          render={(props) => <MovieShow {...props} currentUser={currentUser} />
-        } />
-      <Route path='/movies/' component={MovieSearch} />
-      <Route path='/haikus/:id/' component={HaikuShowContainer} />
+          render={(props) => <MovieShow {...props} currentUser={currentUser} />} />
+      <Route 
+        path='/movies/' 
+        component={MovieSearch} />
+      <Route 
+        path='/haikus/:id/' 
+        render={(props) => <HaikuShowContainer {...props} currentUser={currentUser} />} />
       <Route path='/newhaiku/' render={(props) => <NewHaiku {...props} currentUser={currentUser} />} />
       <Route path='/profiles/:id' render={(props) => <ProfilePage {...props} currentUser={currentUser} />} />
     </Switch>

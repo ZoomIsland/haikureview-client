@@ -1,31 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import './HaikuShow.css'
 
-function HaikuShow (props) {
-  console.log(props)
-  return (
-    <div className='haikuCard flex-center'>
-      <div className='innerHaikuCard'>
-        <Link to={`/haikus/${props.haiku.id}`}>
-          <h2 className='haikuTitle'>{props.haiku.title}</h2>
-        </Link>
-        <p className='haikuText'>{props.haiku.line_one}</p>
-        <p className='haikuText'>{props.haiku.line_two}</p>
-        <p className='haikuText'>{props.haiku.line_three}</p>
-        {/* Add below back in once related works */}
-        <Link to ={`/movies/${props.haiku.movie.id}`}><p className='haikuCardMovie'>{props.haiku.movie.title}</p></Link>
-        {/* <p className='haikuCardUser'>{props.haiku.user.display_name}</p> */}
-      </div>
-      {props.currentUser === props.haiku.user && 
-        <div className="haikuBtns">
-          <div className="haikuEditBtn flex-center">Edit</div>
-          <div className="haikuDeleteBtn flex-center">Delete</div>
+class HaikuShow extends Component {
+  onDelete = (id) => {
+    axios.delete(`${process.env.REACT_APP_API}/haikus/${id}/`)
+    .then((res) => {
+      console.log(res.data)
+      // useHistory.go(0)
+    })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  render() {
+    console.log(this.props)
+    return (
+      <div className='haikuCard flex-center'>
+        <div className='innerHaikuCard'>
+          <Link to={`/haikus/${this.props.haiku.id}`}>
+            <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
+          </Link>
+          <p className='haikuText'>{this.props.haiku.line_one}</p>
+          <p className='haikuText'>{this.props.haiku.line_two}</p>
+          <p className='haikuText'>{this.props.haiku.line_three}</p>
+          {/* Add below back in once related works */}
+          <Link to ={`/movies/${this.props.haiku.movie.id}`}><p className='haikuCardMovie'>{this.props.haiku.movie.title}</p></Link>
+          {/* <p className='haikuCardUser'>{this.props.haiku.user.display_name}</p> */}
         </div>
-      }
-    </div>
-  )
+        {this.props.currentUser === this.props.haiku.user && 
+          <div className="haikuBtns">
+            <div className="haikuEditBtn flex-center">Edit</div>
+            <div className="haikuDeleteBtn flex-center" onClick={() => {this.onDelete(this.props.haiku.id)}}>Delete</div>
+          </div>
+        }
+      </div>
+    )
+  }
 }
 
 export default HaikuShow;

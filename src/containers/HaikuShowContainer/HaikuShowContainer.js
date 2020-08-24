@@ -26,7 +26,7 @@ class HaikuShowContainer extends Component {
     return (
       <div className="haikuShowContainer">
         {this.state.haiku.title && 
-          <HaikuShow haiku={this.state.haiku} />
+          <HaikuShow haiku={this.state.haiku} currentUser={this.props.currentUser} />
         }
       </div>
     )

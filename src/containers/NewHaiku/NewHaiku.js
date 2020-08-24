@@ -43,7 +43,7 @@ class NewHaiku extends Component {
       line_three: this.state.lineThree,
       user: this.props.currentUser
     }
-    axios.post(`${process.env.REACT_APP_API}/haikus/`, data)
+    axios.post(`${process.env.REACT_APP_API}/newhaiku/`, data)
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
