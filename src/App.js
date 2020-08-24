@@ -3,11 +3,15 @@ import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
 import setAuthHeader from './utils/setAuthHeader';
 import HaikuRoutes from './config/HaikuRoutes'
+import HaikuModel from './models/haikus'
 import './App.css';
 
 class App extends Component {
   state = {
-    currentUser: ''
+    currentUser: '',
+    haikus: [],
+    haikusToSort: [],
+    movies: [],
   };
 
   componentDidMount() {
@@ -15,6 +19,23 @@ class App extends Component {
     if (token) {
       this.setCurrentUser(token)
     }
+    HaikuModel.getAllHaikus()
+      .then((res) => {
+        this.setState({haikus: res.data})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  onMainClick = () => {
+    HaikuModel.getAllHaikus()
+      .then((res) => {
+        this.setState({haikus: res.data})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   setCurrentUser = (token) => {
@@ -30,14 +51,46 @@ class App extends Component {
     this.setState({currentUser: ''});
   }
 
+  onMovieClick = (movie_id) => {
+    HaikuModel.getMovieHaikus(movie_id)
+      .then((res) => {
+        this.setState({haikus: res.data.haikus})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  onProfileClick = () => {
+    HaikuModel.getProfileHaikus(this.state.currentUser)
+      .then((res) => {
+        this.setState({haikusToSort: res.data.haikus})
+        this.setState({haikus: res.data.haikus})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  onProfileMovieClick = (movie_id) => {
+    let tempHaikus = this.state.haikusToSort.filter(haiku => haiku.movie.id === movie_id);
+    this.setState({haikus: tempHaikus})
+  }
+
 
   render() {
     return (
       <div className="app">
         <Nav setCurrentUser={this.setCurrentUser} 
              currentUser={this.state.currentUser}
-             logout={this.logout} />
-        <HaikuRoutes currentUser={this.state.currentUser} />
+             logout={this.logout}
+             onMainClick={this.onMainClick}
+             onMovieClick={this.onMovieClick}
+             onProfileClick={this.onProfileClick}
+             onProfileMovieClick={this.onProfileMovieClick} />
+        <HaikuRoutes 
+          currentUser={this.state.currentUser}
+          haikus={this.state.haikus} />
       </div>
     );
   }

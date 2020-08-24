@@ -43,18 +43,10 @@ class ProfilePage extends Component {
           <div className="profileMovies">
             <h2>By Movie</h2>
             {this.state.userData.movies && 
-              <MovieList movies={this.state.userData.movies} />
+              <MovieList movies={this.state.userData.movies} onMovieClick={this.props.onProfileMovieClick} />
             }
           </div>
         </div>
-        {/* <div className="movieHaikus">
-          {this.props.currentUser === this.state.userData.id && (
-            <AddHaikuCard />
-          )}
-          {this.state.userData.haikus &&
-            <HaikuCarousel haikus={this.state.userData.haikus} currentUser={this.props.currentUser} />
-          }
-        </div> */}
       </section>
     )
   }

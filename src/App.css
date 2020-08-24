@@ -15,6 +15,7 @@
   background-image: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
   background-size: cover;
   position: relative;
+  transition: padding-top 1s;
 }
 
 .mainContainer {

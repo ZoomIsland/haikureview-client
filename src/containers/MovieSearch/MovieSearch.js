@@ -25,7 +25,7 @@ class MovieSearch extends Component {
       <div className="movieSearch">
         <SearchBar />
         <div className="searchMovieList">
-          <MovieList movies={this.state.movies} />
+          <MovieList movies={this.state.movies} onMovieClick={this.props.onMovieClick} />
         </div>
       </div>
     )
