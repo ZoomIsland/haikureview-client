@@ -1,12 +1,12 @@
 .searchContainer {
   width: 65%;
-  height: 60px;
   background: #c4c4c4;
 }
 
 .searchContainer input,
 .searchContainer button {
   border: none;
+  margin-top: 10px;
 }
 .searchContainer input {
   width: 70%;
