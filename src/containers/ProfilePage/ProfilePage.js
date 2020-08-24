@@ -12,7 +12,8 @@ class ProfilePage extends Component {
       bio: '',
       display_name: '',
       update: false,
-      pictures: [],
+      uploadedFile: null,
+      picture_url: ''
     }
 
   componentDidMount() {
@@ -41,10 +42,26 @@ class ProfilePage extends Component {
   onInputChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
-
-  onDrop(pictureFiles, pictureDataURLs) {
-    console.log(pictureFiles)
-    this.setState({pictures: pictureFiles})
+  // Image Uploader via this tutorial: https://css-tricks.com/image-upload-manipulation-react/
+  onImageDrop(files) {
+    console.log(files[0])
+    // this.handleImageUpload(files[0]);
+    console.log(process.env.CLOUDINARY_UPLOAD_PRESET)
+    const data = {
+      upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET,
+      file: files[0],
+      api_key: process.env.CLOUDINARY_API_KEY
+    }
+    axios.post(`https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload`, data)
+      .then((response) => {
+        console.log(response)
+        // if (response.body.secure_url !== '') {
+        //   this.setState({
+        //     picture_url: response.body.secure_url
+        //   })
+        // }
+      })
+      .catch(err => console.error(err))
   }
 
   onUpdateSubmit = () => {
@@ -101,7 +118,7 @@ class ProfilePage extends Component {
               bio={this.state.bio} 
               display_name={this.state.display_name}
               onInputChange={this.onInputChange}
-              onDrop={this.onDrop} />
+              onImageDrop={this.onImageDrop} />
           }
           <button className="updateProfileBtn flex-center" onClick={this.toggleUpdate}>Update Profile</button>
         </div>
