@@ -33,7 +33,7 @@ class HaikuShow extends Component {
         </div>
         {this.props.currentUser === this.props.haiku.user && 
           <div className="haikuBtns">
-            <div className="haikuEditBtn flex-center">Edit</div>
+            <Link to={`/updatehaiku/${this.props.haiku.id}`}><div className="haikuEditBtn flex-center">Edit</div></Link>
             <div className="haikuDeleteBtn flex-center" onClick={() => {this.onDelete(this.props.haiku.id)}}>Delete</div>
           </div>
         }

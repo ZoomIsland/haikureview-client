@@ -5,21 +5,27 @@ import setAuthHeader from '../../utils/setAuthHeader'
 
 import SearchBar from '../../components/SearchBar/SearchBar';
 import AddHaikuForm from '../../components/AddHaikuForm/AddHaikuForm'
-import './NewHaiku.css'
+import '../NewHaiku/NewHaiku.css'
 
-class NewHaiku extends Component {
+class UpdateHaiku extends Component {
   state = {
-    movies: [],
     movie: '0',
     title: '',
     lineOne: '',
     lineTwo: '',
-    lineThree: ''
+    lineThree: '',
+    movieTitle: ''
   }
   componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}/movies/`)
+    const haiku_id = this.props.match.params.id;
+    axios.get(`${process.env.REACT_APP_API}/haikus/${haiku_id}/`)
       .then((res) => {
-        this.setState({movies: res.data})
+        this.setState({title: res.data.title})
+        this.setState({lineOne: res.data.line_one})
+        this.setState({lineTwo: res.data.line_two})
+        this.setState({lineThree: res.data.line_three})
+        this.setState({movieTitle: res.data.movie.title})
+        this.setState({movie: res.data.movie.id})
       })
       .catch((err) => {
         console.log(err)
@@ -32,6 +38,7 @@ class NewHaiku extends Component {
 
   // Post request with user header
   handleSubmit = (e) => {
+    const haiku_id = this.props.match.params.id;
     e.preventDefault();
     let token = localStorage.getItem('token');
     setAuthHeader(token)
@@ -43,7 +50,7 @@ class NewHaiku extends Component {
       line_three: this.state.lineThree,
       user: this.props.currentUser
     }
-    axios.post(`${process.env.REACT_APP_API}/newhaiku/`, data)
+    axios.put(`${process.env.REACT_APP_API}/newhaiku/${haiku_id}/`, data)
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
@@ -60,11 +67,12 @@ class NewHaiku extends Component {
                 handleInputChange={this.handleInputChange} 
                 handleSubmit={this.handleSubmit}
                 movie={this.state.movie}
+                movieTitle={this.state.movieTitle}
                 title={this.state.title}
                 lineOne={this.state.lineOne}
                 lineTwo={this.state.lineTwo}
                 lineThree={this.state.lineThree}
-                pageType="new" />
+                pageType="update" />
           </div>
         </div>
       </div>
@@ -72,4 +80,4 @@ class NewHaiku extends Component {
   }
 }
 
-export default NewHaiku;
+export default UpdateHaiku;

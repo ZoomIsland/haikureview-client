@@ -5,7 +5,7 @@ function MovieSelect(props) {
     return <option key={movie.id} value={movie.id}>{movie.title}</option>
   })
   return (
-    <select name="movie" onChange={props.handleInputChange}>
+    <select name="movie" value={props.movieValue} onChange={props.handleInputChange}>
       <option value="0">Select a movie</option>
       {movieList}
     </select>
