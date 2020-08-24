@@ -12,14 +12,12 @@ class ProfilePage extends Component {
       userData: {}
     }
 
-  // I may want to update how this gets data--in case I want others to be able to see user profile pages
-  componentDidUpdate(prevProps) {
-    if (prevProps.currentUser !== this.props.currentUser) {
-      axios.get(`${process.env.REACT_APP_API}/profiles/${this.props.currentUser}/`)
+  componentDidMount() {
+    const profile_id = this.props.match.params.id;
+    axios.get(`${process.env.REACT_APP_API}/profiles/${profile_id}/`)
       .then((res) => {
         const startData = res.data;
         const movies = new Set();
-        console.log(JSON.stringify(res.data.haikus[0].movie))
         startData.haikus.forEach(haiku => {
           movies.add(JSON.stringify(haiku.movie));
         })
@@ -33,7 +31,6 @@ class ProfilePage extends Component {
       .catch((err) => {
         console.log(err)
       })
-    }
   }
 
   render() {
