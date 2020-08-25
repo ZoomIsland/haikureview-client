@@ -68,32 +68,34 @@ class ProfilePage extends Component {
     const data = {
       id: this.state.userData.profile.id,
       display_name: this.state.display_name,
-      bio: this.state.bio,
-      image: this.state.uploadedFile
+      bio: this.state.bio
     }
-    axios.put(`${process.env.REACT_APP_API}/profiles/${data.id}/`, data)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
     const profile_id = this.props.match.params.id;
-    axios.get(`${process.env.REACT_APP_API}/profiles/${profile_id}/`)
-      .then((res) => {
-        const startData = res.data;
-        const movies = new Set();
-        startData.haikus.forEach(haiku => {
-          movies.add(JSON.stringify(haiku.movie));
-        })
-        const movieArray = [];
-        movies.forEach(movie => {
-          movieArray.push(JSON.parse(movie))
-        })
-        startData.movies = movieArray;
-        this.setState({userData: startData})
-        this.setState({bio: res.data.profile.bio})
-        this.setState({display_name: res.data.profile.display_name})
-      }) 
-      .catch((err) => {
-        console.log(err)
+  
+    axios.put(`${process.env.REACT_APP_API}/updateprofile/${data.id}/`, data)
+      .then(res => {
+        console.log(res)
+        axios.get(`${process.env.REACT_APP_API}/profiles/${profile_id}/`)
+          .then((res) => {
+            const startData = res.data;
+            const movies = new Set();
+            startData.haikus.forEach(haiku => {
+              movies.add(JSON.stringify(haiku.movie));
+            })
+            const movieArray = [];
+            movies.forEach(movie => {
+              movieArray.push(JSON.parse(movie))
+            })
+            startData.movies = movieArray;
+            this.setState({userData: startData})
+            this.setState({bio: res.data.profile.bio})
+            this.setState({display_name: res.data.profile.display_name})
+          }) 
+          .catch((err) => {
+            console.log(err)
+          })
       })
+      .catch(err => console.log(err))
   }
 
   toggleUpdate = () => {
