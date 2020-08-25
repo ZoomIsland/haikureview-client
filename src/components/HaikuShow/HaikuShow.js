@@ -21,14 +21,14 @@ class HaikuShow extends Component {
     return (
       <div className='haikuCard flex-center'>
         <div className='innerHaikuCard'>
-          <Link to={`/haikus/${this.props.haiku.id}`}>
-            <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
-          </Link>
+          <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
           <p className='haikuText'>{this.props.haiku.line_one}</p>
           <p className='haikuText'>{this.props.haiku.line_two}</p>
           <p className='haikuText'>{this.props.haiku.line_three}</p>
           {/* Add below back in once related works */}
-          <Link to ={`/movies/${this.props.haiku.movie.id}`}><p className='haikuCardMovie'>{this.props.haiku.movie.title}</p></Link>
+          {this.props.haiku.movie &&
+            <Link to ={`/movies/${this.props.haiku.movie.id}`}><p className='haikuCardMovie'>{this.props.haiku.movie.title}</p></Link>
+          }
           {/* <p className='haikuCardUser'>{this.props.haiku.user.display_name}</p> */}
         </div>
         {this.props.currentUser === this.props.haiku.user && 
