@@ -43,34 +43,35 @@ class ProfilePage extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
   // Image Uploader via this tutorial: https://css-tricks.com/image-upload-manipulation-react/
-  onImageDrop(files) {
-    console.log(files[0])
-    // this.handleImageUpload(files[0]);
-    console.log(process.env.CLOUDINARY_UPLOAD_PRESET)
-    const data = {
-      upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET,
-      file: files[0],
-      api_key: process.env.CLOUDINARY_API_KEY
-    }
-    axios.post(`https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload`, data)
-      .then((response) => {
-        console.log(response)
-        // if (response.body.secure_url !== '') {
-        //   this.setState({
-        //     picture_url: response.body.secure_url
-        //   })
-        // }
-      })
-      .catch(err => console.error(err))
+  onImageDrop = (files) => {
+    // console.log(files[0])
+    this.setState({uploadedFile: files[0]});
+    // console.log(process.env.CLOUDINARY_UPLOAD_PRESET)
+    // const data = {
+    //   upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET,
+    //   file: files[0],
+    //   api_key: process.env.CLOUDINARY_API_KEY
+    // }
+    // axios.post(`https://api.cloudinary.com/v1_1/dwsfiv9ak/image/upload`, data)
+    //   .then((response) => {
+    //     console.log(response)
+    //     // if (response.body.secure_url !== '') {
+    //     //   this.setState({
+    //     //     picture_url: response.body.secure_url
+    //     //   })
+    //     // }
+    //   })
+    //   .catch(err => console.error(err))
   }
 
   onUpdateSubmit = () => {
     const data = {
       id: this.state.userData.profile.id,
       display_name: this.state.display_name,
-      bio: this.state.bio
+      bio: this.state.bio,
+      image: this.state.uploadedFile
     }
-    axios.put(`${process.env.REACT_APP_API}/updateprofile/${data.id}/`, data)
+    axios.put(`${process.env.REACT_APP_API}/profiles/${data.id}/`, data)
       .then(res => console.log(res))
       .catch(err => console.log(err))
     const profile_id = this.props.match.params.id;

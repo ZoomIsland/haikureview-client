@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
 import setAuthHeader from './utils/setAuthHeader';
 import HaikuRoutes from './config/HaikuRoutes'
-import HaikuModel from './models/haikus'
+import HaikuModel from './models/haikus';
 import './App.css';
 
 class App extends Component {

@@ -11,7 +11,7 @@
   padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 50px);
   background-image: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
   background-size: cover;
   position: relative;
@@ -20,6 +20,15 @@
 
 .mainContainer {
   flex: 1 0 auto;
+  max-height: calc(100vh - 50px);
+  overflow: scroll;
+}
+
+.mainContainer,
+.newHaikuPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* General styling */

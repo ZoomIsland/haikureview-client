@@ -92,16 +92,14 @@ class Nav extends Component {
           {!this.props.currentUser && (
             <React.Fragment>
               <button onClick={(e) => {
-                this.formAppear(e);
-                this.drawerClose()}} value="login">Login</button>
+                this.formAppear(e)}} value="login">Login</button>
               <button onClick={(e) => {
-                this.formAppear(e);
-                this.drawerClose()}} value="signup">Sign Up</button>
+                this.formAppear(e)}} value="signup">Sign Up</button>
             </React.Fragment>
           )}
           {this.props.currentUser && (
             <React.Fragment>
-              <NavLink to="/newhaiku/"><div className="navAdd">Add Haiku</div></NavLink>
+              <NavLink to="/newhaiku/" onClick={this.drawerClose}><div className="navAdd">Add Haiku</div></NavLink>
               <NavLink 
                 to={`/profiles/${this.props.currentUser}`} 
                 onClick={(e) => {
