@@ -1,0 +1,21 @@
+.addHaikuMini {
+  height: 70px;
+  width: 200px;
+  background: #F1E7CD;
+  margin: 20px 0px;
+  box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+}
+.innerAdd {
+  height: 50px;
+  width: 180px;
+  border: 4px solid #B7910A;
+}
+
+.innerAdd i {
+  font-size: 36px;
+}
+.innerAdd p {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 10px;
+}

@@ -1,0 +1,108 @@
+.haikuContainer {
+  margin: 50px;
+}
+
+.haikuCard {
+  width: 800px;
+  height: 300px;
+  background: #F1E7CD;
+  box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.innerHaikuCard {
+  width: 780px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.haikuTitle,
+.haikuText {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.haikuTitle {
+  font-size: 44px;
+}
+.haikuText {
+  font-size: 30px;
+}
+.haikuText:nth-child(5) {
+  margin-bottom: 15px;
+}
+
+.haikuCardMovie,
+.haikuCardUser {
+  position: absolute;
+  bottom: 15px;
+}
+.haikuCardMovie {
+  left: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+.haikuCardUser {
+  right: 15px;
+}
+
+.haikuBtns {
+  position: absolute;
+  display: flex;
+  top: -30px;
+  right: 25px;
+}
+.haikuEditBtn,
+.haikuDeleteBtn {
+  height: 30px;
+  width: 60px;
+  border-radius: 5px 5px 0px 0px;
+  margin: 0px 10px;
+  background: rgb(189, 178, 163);
+  font-family: 'Roboto', sans-serif;
+}
+.haikuEditBtn:hover,
+.haikuDeleteBtn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 900px) {
+  .haikuCard {
+    width: 580px;
+    height: 210px;
+  }
+  .innerHaikuCard {
+    width: 560px;
+    height: 190px;
+  }
+  .haikuTitle {
+    font-size: 28px;
+  }
+  .haikuText {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .haikuCard {
+    width: 350px;
+    height: 160px;
+  }
+  .innerHaikuCard {
+    width: 330px;
+    height: 140px;
+  }
+  .haikuTitle {
+    font-size: 20px;
+  }
+  .haikuText {
+    font-size: 16px;
+  }
+  .haikuCardMovie {
+    font-size: 13px;
+  }
+}

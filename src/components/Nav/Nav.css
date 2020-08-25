@@ -1,0 +1,123 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 100vw;
+  background: black;
+  font-family: Helvetica, sans-serif;
+  position: fixed;
+  top: 0;
+  z-index: 25;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+.siteName {
+  font-size: 36px;
+  line-height: 42px;
+  padding-left: 20px;
+  background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+.navLinks {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  z-index: 25;
+  width: 450px;
+  background: black;
+  align-items: center;
+  height: 50px;
+}
+.navSearch,
+.navAdd,
+.navProfile,
+.navLinks button {
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  padding: 0px 6px;
+  margin: 0px 7px;
+}
+.navSearch,
+.navProfile,
+.navAdd {
+  display: flex;
+  align-items: center;
+  background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.navSearch {
+  width: 135px;
+}
+.navAdd {
+  width: 95px;
+}
+.navLinks button {
+  border: none;
+  background: none;
+  font-weight: 400;
+  cursor: pointer;
+  background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.navLinks button:hover,
+.navSearch:hover,
+.navAdd:hover,
+.navProfile:hover {
+  text-decoration: underline;
+}
+
+@keyframes boxDrop {
+  from {top: -200px;}
+  to {top: 50px;}
+}
+
+.loginBox,
+.signupBox {
+  position: absolute;
+  right: 27px;
+  top: 50px;
+  width: 300px;
+  padding-top: 10px;
+  background: darkgray;
+  border-radius: 0 0 10px 10px;
+  z-index: 24;
+  animation: boxDrop 1 750ms;
+}
+.loginBox form,
+.signupBox form {
+  height: 100%;
+  width: 100%;
+}
+.loginBox input,
+.signupBox input {
+  display: block;
+  margin: 5px;
+  height: 30px;
+  width: 250px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.loginBox button,
+.signupBox button {
+  height: 35px;
+  width: 100px;
+  background: red;
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.haikuOrderDrawers {
+  position: absolute;
+  top: 50px;
+}

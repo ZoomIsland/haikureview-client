@@ -1,0 +1,22 @@
+.searchContainer {
+  width: 65%;
+}
+
+.searchContainer input,
+.searchContainer button {
+  margin-top: 10px;
+}
+.searchContainer input {
+  border: none;
+  width: 70%;
+  height: 40px;
+  font-size: 24px;
+  border-radius: 10px;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+.searchContainer button {
+  width: 25%;
+  height: 35px;
+  font-size: 24px;
+}
