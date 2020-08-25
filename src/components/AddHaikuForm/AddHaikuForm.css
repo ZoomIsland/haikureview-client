@@ -40,3 +40,49 @@
 .lineTwoInput {
   width: 75%;
 }
+
+@media only screen and (max-width: 900px) {
+  .titleInputText {
+    font-size: 20px;
+    margin: 0;
+  }.haikuInputText {
+    font-size: 24px;
+    margin: 0;
+  }
+  .haikuTitleInput {
+    height: 32px;
+    font-size: 20px;
+    margin: 10px;
+  }
+  .lineOneInput,
+  .lineTwoInput,
+  .lineThreeInput {
+    height: 36px;
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .titleInputText {
+    font-size: 16px;
+  }.haikuInputText {
+    font-size: 20px;
+    margin: 0;
+  }
+  .haikuTitleInput {
+    height: 32px;
+    font-size: 14px;
+    padding-left: 2px;
+  }
+  .lineOneInput,
+  .lineTwoInput,
+  .lineThreeInput {
+    height: 32px;
+    font-size: 18px;
+    margin: 2px;
+  }
+  .addHaikuForm button {
+    height: 30px;
+    font-size: 18px;
+  }
+}

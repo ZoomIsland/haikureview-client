@@ -42,6 +42,7 @@
 }
 .haikuCardMovie {
   left: 15px;
+  font-family: 'Roboto', sans-serif;
 }
 .haikuCardUser {
   right: 15px;
@@ -66,4 +67,41 @@
 .haikuDeleteBtn:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 900px) {
+  .haikuCard {
+    width: 580px;
+    height: 210px;
+  }
+  .innerHaikuCard {
+    width: 560px;
+    height: 190px;
+  }
+  .haikuTitle {
+    font-size: 28px;
+  }
+  .haikuText {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .haikuCard {
+    width: 350px;
+    height: 160px;
+  }
+  .innerHaikuCard {
+    width: 330px;
+    height: 140px;
+  }
+  .haikuTitle {
+    font-size: 20px;
+  }
+  .haikuText {
+    font-size: 16px;
+  }
+  .haikuCardMovie {
+    font-size: 13px;
+  }
 }

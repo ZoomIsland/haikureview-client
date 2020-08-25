@@ -15,3 +15,25 @@
   align-items: center;
   justify-content: center;
 }
+
+@media only screen and (max-width: 900px) {
+  .newHaikuCard {
+    width: 560px;
+    height: 420px;
+  }
+  .innerNewCard {
+    width: 540px;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .newHaikuCard {
+    width: 350px;
+    height: 260px;
+  }
+  .innerNewCard {
+    width: 330px;
+    height: 240px;
+  }
+}
