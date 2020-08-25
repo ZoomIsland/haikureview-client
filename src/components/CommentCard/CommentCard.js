@@ -17,7 +17,7 @@ function CommentCard(props) {
               onCommentSubmit={props.onCommentSubmit} />
           }
           {/* if props.comments */}
-          <CommentList />
+          <CommentList comments={props.comments} />
         </div>
       </section>
     )

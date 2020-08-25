@@ -18,7 +18,9 @@ class HaikuShow extends Component {
 
   componentDidMount() {
     axios.get(`${process.env.REACT_APP_API}/comments/${this.props.haiku.id}/`)
-      .then(res => console.log(res))
+      .then(res => {
+        this.setState({comments: res.data.comments})
+      })
       .catch(err => console.log(err))
   }
 
@@ -51,8 +53,22 @@ class HaikuShow extends Component {
     axios.post(`${process.env.REACT_APP_API}/newcomment/`, data)
       .then(res => {
         console.log(res)
+        axios.get(`${process.env.REACT_APP_API}/comments/${this.props.haiku.id}/`)
+          .then(res => {
+            console.log(res.data)
+            this.setState({comments: res.data.comments})
+          })
+          .catch(err => console.log(err))
       })
       .catch(err => console.log(err))
+  }
+
+  ratingCount = () => {
+    let totalRating = 0;
+    this.state.comments.forEach(comment => {
+      totalRating += comment.rating
+    })
+    return (totalRating / this.state.comments.length);
   }
 
   onDelete = (id) => {
@@ -67,13 +83,12 @@ class HaikuShow extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="haikuContainer flex-center-column">
         <div className='haikuCard flex-center'>
           <div className='innerHaikuCard innerCardContainer'>
             {/* if haiku.avgRating */}
-            <StarDisplay rating="4.3" />
+            <StarDisplay rating={this.ratingCount()} />
             <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
             <p className='haikuText'>{this.props.haiku.line_one}</p>
             <p className='haikuText'>{this.props.haiku.line_two}</p>
@@ -97,7 +112,7 @@ class HaikuShow extends Component {
         {this.state.commentShow &&
           <CommentCard 
             currentUser={this.props.currentUser} 
-            comments={this.props.haiku.comments} 
+            comments={this.state.comments} 
             userRating={this.state.userRating}
             userComment={this.state.userComment}
             handleInputChange={this.handleInputChange}
