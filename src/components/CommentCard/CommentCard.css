@@ -1,0 +1,11 @@
+.commentCard {
+  width: 750px;
+  height: 400px;
+  background: #F1E7CD;
+  bottom: -400px;
+}
+.innerComment {
+  width: 730px;
+  height: 380px;
+  border: 4px solid #B7910A;
+}
