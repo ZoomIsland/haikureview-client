@@ -3,7 +3,6 @@
   to {height: 250px;}
 }
 
-.profileData,
 .profileContainer {
   display: flex;
 }
@@ -16,18 +15,8 @@
 }
 
 .profileData {
-  width: calc(40vw - 20px);
-  min-width: 510px;
-  position: relative;
-}
-
-.updateProfileBtn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  height: 30px;
-  width: 125px;
-  font-size: 16px;
+  width: 350px;
+  height: 230px;
 }
 
 .profileMovies {

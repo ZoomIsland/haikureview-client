@@ -16,7 +16,7 @@ function ProfileForm(props) {
         withPreview={true}
         buttonText={"Choose Image"}
         onChange={props.onDrop} /> */}
-      <Dropzone onDrop={acceptedFiles => props.onImageDrop(acceptedFiles)}>
+      {/* <Dropzone onDrop={acceptedFiles => props.onImageDrop(acceptedFiles)}>
         {({getRootProps, getInputProps}) => (
           <section>
             <div {...getRootProps()}>
@@ -25,7 +25,7 @@ function ProfileForm(props) {
             </div>
           </section>
         )}
-      </Dropzone>
+      </Dropzone> */}
       <section className="formText">
         <div className="displayNameForm">
           <label htmlFor="proFormName">Name: </label>
@@ -46,6 +46,7 @@ function ProfileForm(props) {
             onChange={props.onInputChange}
             placeholder="Insert bio here"></textarea>   
         </div>
+        <button className="updateProfileBtn flex-center" onClick={props.toggleUpdate}>Update Profile</button>
       </section>
     </div>
   )

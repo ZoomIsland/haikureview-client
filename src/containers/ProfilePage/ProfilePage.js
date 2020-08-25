@@ -113,7 +113,7 @@ class ProfilePage extends Component {
       <section className="profileContainer">
         <div className="profileData">
           {(this.state.userData.profile && this.state.update === false) && 
-            <ProfileDetail data={this.state.userData} />
+            <ProfileDetail data={this.state.userData} toggleUpdate={this.toggleUpdate} />
           }
           {(this.state.userData.profile && this.state.update === true) && 
             <ProfileForm 
@@ -121,9 +121,9 @@ class ProfilePage extends Component {
               bio={this.state.bio} 
               display_name={this.state.display_name}
               onInputChange={this.onInputChange}
-              onImageDrop={this.onImageDrop} />
+              onImageDrop={this.onImageDrop}
+              toggleUpdate={this.toggleUpdate} />
           }
-          <button className="updateProfileBtn flex-center" onClick={this.toggleUpdate}>Update Profile</button>
         </div>
         <div className="profileMovies">
           <h2>By Movie</h2>
