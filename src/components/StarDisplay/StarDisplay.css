@@ -1,0 +1,18 @@
+.starDisplay {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.star {
+  margin: 0px 3px;
+  height: 30px;
+  width: 30px;
+  background: lightgrey;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.gold {
+  height: 100%;
+  background: #B7910A;
+}

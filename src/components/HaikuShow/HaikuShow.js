@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import StarDisplay from '../StarDisplay/StarDisplay'
 import CommentCard from '../../components/CommentCard/CommentCard'
 import './HaikuShow.css'
 
 class HaikuShow extends Component {
+  state = {
+    commentShow: false
+  }
   onDelete = (id) => {
     axios.delete(`${process.env.REACT_APP_API}/haikus/${id}/`)
     .then((res) => {
@@ -23,6 +27,8 @@ class HaikuShow extends Component {
       <div className="haikuContainer flex-center-column">
         <div className='haikuCard flex-center'>
           <div className='innerHaikuCard'>
+            {/* if haiku.avgRating */}
+            <StarDisplay rating="4.3" />
             <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
             <p className='haikuText'>{this.props.haiku.line_one}</p>
             <p className='haikuText'>{this.props.haiku.line_two}</p>
@@ -40,7 +46,7 @@ class HaikuShow extends Component {
             </div>
           }
         </div>
-        <CommentCard />
+        <CommentCard currentUser={this.props.currentUser} comments={this.props.haiku.comments} />
       </div>
     )
   }

@@ -29,12 +29,11 @@
 
 .haikuTitle {
   font-size: 44px;
-  margin-top: 15px;
 }
 .haikuText {
   font-size: 30px;
 }
-.haikuText:nth-child(4) {
+.haikuText:nth-child(5) {
   margin-bottom: 15px;
 }
 
