@@ -14,5 +14,5 @@
 
 .gold {
   height: 100%;
-  background: #B7910A;
+  background: linear-gradient(to bottom right, #9a7318, #e6dc4b, #9a7318);
 }

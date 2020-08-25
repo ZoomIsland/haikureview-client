@@ -3,25 +3,25 @@ import React from 'react';
 import './StarDisplay.css'
 
 function StarDisplay(props) {
-  const starArray = [1,2,3,4,5]
+  const starArray = [0,1,2,3,4]
+  const rating = parseInt(props.rating);
   const mappedStars = starArray.map(star => {
-    if ((props.rating - star) >= 1) {
+    if ((rating - star) >= 1) {
       return (
-        <div className="star">
+        <div className="star" data-name="userRating" data-value={star + 1} key={star} onClick={props.handleInputChange}>
           <div className="gold"></div>
         </div>
       )
-    } else if ((props.rating - star) >= 0) {
-      let starPercent = ((props.rating - star) * 100).toString() + "%"
-      console.log(starPercent)
+    } else if ((rating - star) >= 0) {
+      let starPercent = ((rating - star) * 100).toString() + "%"
       return (
-        <div className="star">
+        <div className="star" data-name="userRating" data-value={star + 1} key={star} onClick={props.handleInputChange}>
           <div className="gold" style={{width: starPercent}}></div>
         </div>
       )
     } else {
       return (
-        <div className="star"></div>
+        <div className="star" data-name="userRating" data-value={star + 1} key={star} onClick={props.handleInputChange}></div>
       )
     }
   })

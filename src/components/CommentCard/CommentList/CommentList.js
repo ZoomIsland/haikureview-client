@@ -8,7 +8,7 @@ function CommentList(props) {
   // })
   return (
     <div className="commentList">
-      This is the comment List
+      <Comment />
       <Comment />
       {/* {commentList} */}
     </div>

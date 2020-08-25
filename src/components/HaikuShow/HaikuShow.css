@@ -13,7 +13,6 @@
 .innerHaikuCard {
   width: 780px;
   height: 280px;
-  border: 4px solid #B7910A;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

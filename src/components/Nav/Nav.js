@@ -72,7 +72,7 @@ class Nav extends Component {
         render() {
           return (
       <nav>
-        <div className="siteName">
+        <h1 className="siteName">
           <NavLink 
             className="mainLink" 
             to="/" 
@@ -81,7 +81,7 @@ class Nav extends Component {
               this.drawerClose();
               this.props.onMainClick()}} 
             value="">Haiku Review</NavLink>
-        </div>
+        </h1>
         <div className="navLinks">
           <NavLink 
             to="/movies/"><div className="navSearch" value="" onClick={(e) => {

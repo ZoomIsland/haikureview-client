@@ -2,14 +2,59 @@ import React, { Component } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+
+import setAuthHeader from '../../utils/setAuthHeader'
 import StarDisplay from '../StarDisplay/StarDisplay'
 import CommentCard from '../../components/CommentCard/CommentCard'
 import './HaikuShow.css'
 
 class HaikuShow extends Component {
   state = {
-    commentShow: false
+    commentShow: false,
+    comments: [],
+    userRating: 0,
+    userComment: ''
   }
+
+  componentDidMount() {
+    axios.get(`${process.env.REACT_APP_API}/comments/${this.props.haiku.id}/`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
+  toggleComments = () => {
+    if (this.state.commentShow === false) {
+      this.setState({commentShow: true});
+    } else {
+      this.setState({commentShow: false})
+    }
+  }
+
+  handleInputChange = (e) => {
+    if (e.target.name) {
+      this.setState({[e.target.name]: e.target.value})
+    } else {
+      this.setState({[e.currentTarget.dataset.name]: e.currentTarget.dataset.value})
+    }
+  }
+
+  onCommentSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      user: this.props.currentUser,
+      haiku: this.props.haiku.id,
+      rating: this.state.userRating,
+      comment: this.state.userComment
+    }
+    let token = localStorage.getItem('token');
+    setAuthHeader(token)
+    axios.post(`${process.env.REACT_APP_API}/newcomment/`, data)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => console.log(err))
+  }
+
   onDelete = (id) => {
     axios.delete(`${process.env.REACT_APP_API}/haikus/${id}/`)
     .then((res) => {
@@ -26,7 +71,7 @@ class HaikuShow extends Component {
     return (
       <div className="haikuContainer flex-center-column">
         <div className='haikuCard flex-center'>
-          <div className='innerHaikuCard'>
+          <div className='innerHaikuCard innerCardContainer'>
             {/* if haiku.avgRating */}
             <StarDisplay rating="4.3" />
             <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
@@ -37,6 +82,9 @@ class HaikuShow extends Component {
             {this.props.haiku.movie &&
               <Link to ={`/movies/${this.props.haiku.movie.id}`}><p className='haikuCardMovie'>{this.props.haiku.movie.title}</p></Link>
             }
+            {/* if haiku.comments */}
+            {/* probably need to change text if currentUser too */}
+            <p className="commentLink" onClick={this.toggleComments}>View comments</p>
             {/* <p className='haikuCardUser'>{this.props.haiku.user.display_name}</p> */}
           </div>
           {this.props.currentUser === this.props.haiku.user && 
@@ -46,7 +94,15 @@ class HaikuShow extends Component {
             </div>
           }
         </div>
-        <CommentCard currentUser={this.props.currentUser} comments={this.props.haiku.comments} />
+        {this.state.commentShow &&
+          <CommentCard 
+            currentUser={this.props.currentUser} 
+            comments={this.props.haiku.comments} 
+            userRating={this.state.userRating}
+            userComment={this.state.userComment}
+            handleInputChange={this.handleInputChange}
+            onCommentSubmit={this.onCommentSubmit} />
+        }
       </div>
     )
   }

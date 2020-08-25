@@ -18,6 +18,10 @@ nav a {
   font-size: 36px;
   line-height: 42px;
   padding-left: 20px;
+  background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
 }
 .navLinks {
   display: flex;
@@ -44,6 +48,9 @@ nav a {
 .navAdd {
   display: flex;
   align-items: center;
+  background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .navSearch {
   width: 135px;
@@ -56,12 +63,15 @@ nav a {
   background: none;
   font-weight: 400;
   cursor: pointer;
+  background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .navLinks button:hover,
 .navSearch:hover,
 .navAdd:hover,
 .navProfile:hover {
-  background: darkgrey;
+  text-decoration: underline;
 }
 
 @keyframes boxDrop {

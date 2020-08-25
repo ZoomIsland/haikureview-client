@@ -1,11 +1,13 @@
-:root {
-  nav-height: 50px;
-}
-
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
+
+:root {
+  --nav-height: 50px;
+}
+
 
 .app {
   padding-top: var(--nav-height);
@@ -49,7 +51,10 @@ button {
   background: antiquewhite;
 }
 .innerCardContainer {
-  border: 4px solid #B7910A;
+  /* border: 4px solid #B7910A; */
+  border: 4px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom right, #9a7318, #e6dc4b, #9a7318);
 }
 
 /* Function classes */
