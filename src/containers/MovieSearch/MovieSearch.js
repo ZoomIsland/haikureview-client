@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import OmdbApi from 'omdb-api-pt';
+// import OmdbApi from 'omdb-api-pt';
 
 import MovieModel from '../../models/movies';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -30,6 +30,13 @@ class MovieSearch extends Component {
     let omdbResults, haikuApiResults;
     e.preventDefault();
     if (this.state.movieSearch) {
+      
+      // THIS CALL WORKS -- SO WHERE ARE THE RESULTS?
+      // MovieModel.searchAPIs(this.state.movieSearch)
+
+
+
+      // THIS RENDERS RESULTS JUSSS FINE
       MovieModel.searchOMDB(this.state.movieSearch)
         .then(res => {
           let movies = res.Search
