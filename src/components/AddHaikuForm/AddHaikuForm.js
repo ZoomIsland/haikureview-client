@@ -1,16 +1,17 @@
 import React from 'react';
 
-import MovieSelect from '../MovieSelect/MovieSelect'
-import './AddHaikuForm.css'
+import MovieSearch from '../../containers/MovieSearch/MovieSearch';
+import MovieSelect from '../MovieSelect/MovieSelect';
+import './AddHaikuForm.css';
 
 function AddHaikuForm(props) {
   return (
     <form className="flex-center-column addHaikuForm" onSubmit={props.handleSubmit}>
-      {props.pageType === "new" && 
-        <MovieSelect 
-            movies={props.movies}
-            handleInputChange={props.handleInputChange}
-            movieValue={props.movie} />
+      {props.pageType === "new" &&
+        <MovieSearch 
+          searchPlaceholder="What movie would you like to review?"
+          handleInputChange={props.handleInputChange}
+          movie={props.movie} />
       }
       {props.pageType === 'update' && <p>Movie selected:  {props.movieTitle}</p>}
       <label htmlFor="haikuTitle" className="titleInputText">Title:</label>

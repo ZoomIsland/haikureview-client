@@ -13,7 +13,7 @@ function Routes(props) {
         render={(props) => <ProfilePage {...props} onProfileMovieClick={onProfileMovieClick} currentUser={currentUser} />} />
       <Route 
         path='/movies/' 
-        render={(props) => <MovieSearch {...props} onMovieClick={onMovieClick} />} />
+        render={(props) => <MovieSearch {...props} onMovieClick={onMovieClick} searchPlaceholder="Search for haikus by movie" />} />
     </Switch>
   )
 }

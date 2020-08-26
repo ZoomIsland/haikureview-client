@@ -7,8 +7,10 @@
 :root {
   --nav-height: 50px;
   --drawer-color: url("https://images.unsplash.com/photo-1522382955582-23b67919cca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
-  --drawer-color-wood: url("https://images.unsplash.com/photo-1498962342534-ee08a0bb1d45?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80");
-  --gold: linear-gradient(to bottom right, #9a7318, #e6dc4b, #9a7318);
+  --drawer-color: url("https://images.unsplash.com/photo-1498962342534-ee08a0bb1d45?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80");
+  /* --gold: linear-gradient(to bottom right, #9a7318, #e6dc4b, #9a7318); */
+  --gold: linear-gradient(to bottom right,#E09082, #e8ba83, #E09082);
+  --rose-gold: linear-gradient(to bottom right,#E09082, #d2a46d, #E09082);
 }
 
 
@@ -39,7 +41,7 @@
 /* General styling */
 button {
   padding: 10px;
-  background: pink;
+  background: var(--gold);
   color: black;
   height: 50px;
   font-size: 24px;

@@ -1,12 +1,12 @@
 import React from 'react';
 
 function MovieSelect(props) {
-  const movieList = props.movies.map(movie => {
-    return <option key={movie.id} value={movie.id}>{movie.title}</option>
+  const movieList = props.movies.map((movie, index) => {
+    return <option key={index} value={JSON.stringify(movie)} data-title="test">{movie.title}</option>
   })
   return (
     <select name="movie" value={props.movieValue} onChange={props.handleInputChange}>
-      <option value="0">Select a movie</option>
+      <option value="null">Select a movie</option>
       {movieList}
     </select>
   )

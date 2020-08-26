@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import MovieModel from '../../models/movies';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import MovieRoutes from '../../config/MovieRoutes';
 import MovieList from '../../components/MovieList/MovieList';
 import './MovieSearch.css'
 
@@ -41,8 +42,16 @@ class MovieSearch extends Component {
   render() {
     return(
       <div className="movieSearch">
-        <SearchBar handleInputChange={this.handleInputChange} onSearch={this.onSearch} />
-        <MovieList movies={this.state.movies} onMovieClick={this.props.onMovieClick} />
+        <SearchBar 
+          handleInputChange={this.handleInputChange} 
+          onSearch={this.onSearch} 
+          searchPlaceholder={this.props.searchPlaceholder} />
+        {/* <MovieList movies={this.state.movies} onMovieClick={this.props.onMovieClick} /> */}
+        <MovieRoutes 
+          movies={this.state.movies} 
+          onMovieClick={this.props.onMovieClick}
+          handleInputChange={this.props.handleInputChange}
+          movie={this.props.movie} />
       </div>
     )
   }

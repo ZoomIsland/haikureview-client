@@ -5,6 +5,10 @@ const haiku_url = process.env.REACT_APP_API;
 const omdb_key = process.env.REACT_APP_OMDB_API_KEY;
 
 class MovieModel {
+  static createMovie(data) {
+    return axios.post(`${haiku_url}/movies/`, data)
+      .catch(err => console.log(err))
+  }
   // After finishing profile, consider deleting:
   // static searchOMDB(term) {
   //   const omdb = new OmdbApi({

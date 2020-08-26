@@ -117,7 +117,13 @@ nav a {
   cursor: pointer;
 }
 
+@keyframes searchOpen {
+  from {height: 0px;}
+  to {height: 242px;}
+}
 .haikuOrderDrawers {
   position: absolute;
   top: 50px;
+  background: var(--drawer-color);
+  background-size: cover;
 }
