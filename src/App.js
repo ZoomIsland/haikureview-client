@@ -22,17 +22,52 @@ class App extends Component {
     }
     HaikuModel.getAllHaikus()
       .then((res) => {
-        this.setState({haikus: res.data})
+        const sortedResults = this.getAvgAndSort(res.data);
+        this.setState({haikus: sortedResults})
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
+  getAvgAndSort = (haikuArray) => {
+    console.log(haikuArray)
+    const arrayWithRatings = []
+    haikuArray.forEach(haiku => {
+      const midHaiku = haiku;
+      let totalRating = 0;
+      let ratingCount = haiku.comments.length;
+      haiku.comments.forEach(comment => {
+        totalRating += comment.rating
+        if (comment.rating === 0) {
+          ratingCount--;
+        }
+      })
+      console.log(totalRating, ratingCount)
+      if (ratingCount === 0) {
+        midHaiku.avgRating = 0
+      } else {
+        midHaiku.avgRating = totalRating / ratingCount;
+      }
+      arrayWithRatings.push(midHaiku);
+    })
+    const sortedArray = arrayWithRatings.sort(function(a,b) {
+      if (a.avgRating < b.avgRating) {
+        return 1;
+      }
+      if (a.avgRating > b.avgRating) {
+        return -1;
+      }
+      return 0;
+    })
+    return sortedArray;
+  }
+
   onMainClick = () => {
     HaikuModel.getAllHaikus()
       .then((res) => {
-        this.setState({haikus: res.data})
+        const sortedResults = this.getAvgAndSort(res.data);
+        this.setState({haikus: sortedResults})
       })
       .catch((err) => {
         console.log(err)
@@ -58,7 +93,8 @@ class App extends Component {
     }
     HaikuModel.getMovieHaikus(movie_id)
       .then((res) => {
-        this.setState({haikus: res.data.haikus})
+        const sortedResults = this.getAvgAndSort(res.data.haikus);
+        this.setState({haikus: sortedResults})
       })
       .catch((err) => {
         console.log(err)
@@ -68,8 +104,9 @@ class App extends Component {
   onProfileClick = () => {
     HaikuModel.getProfileHaikus(this.state.currentUser)
       .then((res) => {
-        this.setState({haikusToSort: res.data.haikus})
-        this.setState({haikus: res.data.haikus})
+        const sortedResults = this.getAvgAndSort(res.data.haikus);
+        this.setState({haikus: sortedResults})
+        this.setState({haikusToSort: sortedResults})
       })
       .catch((err) => {
         console.log(err)

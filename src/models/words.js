@@ -8,7 +8,7 @@ class WordModel {
       // https://stackoverflow.com/questions/31413749/node-js-promise-all-and-foreach
       const callWords = function callServer(term) { // sample async action
         return new Promise(resolve => {
-          resolve(fetch(`https://api.datamuse.com/words?sp=${term}&md=s`)
+          resolve(fetch(`https://api.datamuse.com/words?sp=${term}&md=s&max=1`)
           .then(res => res.json())
           .then(res => {
             return (res[0].numSyllables)
