@@ -11,18 +11,18 @@ import './HaikuShow.css'
 class HaikuShow extends Component {
   state = {
     commentShow: false,
-    comments: [],
+    comments: null,
     userRating: 0,
     userComment: ''
   }
 
-  componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}/comments/${this.props.haiku.id}/`)
-      .then(res => {
-        this.setState({comments: res.data.comments})
-      })
-      .catch(err => console.log(err))
-  }
+  // componentDidMount() {
+  //   axios.get(`${process.env.REACT_APP_API}/comments/${this.props.haiku.id}/`)
+  //     .then(res => {
+  //       this.setState({comments: res.data.comments})
+  //     })
+  //     .catch(err => console.log(err))
+  // }
 
   toggleComments = () => {
     if (this.state.commentShow === false) {
@@ -72,15 +72,18 @@ class HaikuShow extends Component {
   }
 
   ratingCount = () => {
-    let totalRating = 0;
-    let ratingCount = this.state.comments.length
-    this.state.comments.forEach(comment => {
-      totalRating += comment.rating
-      if (comment.rating === 0) {
-        ratingCount--;
-      }
-    })
-    return (totalRating / ratingCount);
+    const comments = this.state.comments || this.props.haiku.comments;
+    if (this.props.haiku.comments) {
+      let totalRating = 0;
+      let ratingCount = comments.length
+      comments.forEach(comment => {
+        totalRating += comment.rating
+        if (comment.rating === 0) {
+          ratingCount--;
+        }
+      })
+      return (totalRating / ratingCount);
+    }
   }
 
   onDelete = (id) => {
@@ -126,7 +129,7 @@ class HaikuShow extends Component {
         {this.state.commentShow &&
           <CommentCard 
             currentUser={this.props.currentUser} 
-            comments={this.state.comments} 
+            comments={this.state.comments || this.props.haiku.comments} 
             userRating={this.state.userRating}
             userComment={this.state.userComment}
             handleInputChange={this.handleInputChange}

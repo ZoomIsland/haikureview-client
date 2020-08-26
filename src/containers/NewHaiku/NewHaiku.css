@@ -30,21 +30,29 @@
 @media only screen and (max-width: 900px) {
   .newHaikuCard {
     width: 560px;
-    height: 420px;
+    height: 460px;
   }
   .innerNewCard {
     width: 540px;
-    height: 400px;
+    height: 440px;
+  }
+  .movieSelect {
+    max-width: 350px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .newHaikuCard {
     width: 350px;
-    height: 260px;
+    height: 460px;
   }
   .innerNewCard {
     width: 330px;
-    height: 240px;
+    height: 440px;
+  }
+  .movieSelect {
+    height: 25px;
+    width: 200px;
+    font-size: 14px;
   }
 }

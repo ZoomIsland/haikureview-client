@@ -95,6 +95,13 @@
   .haikuText {
     font-size: 24px;
   }
+  .commentLink,
+  .haikuCardMovie {
+    font-size: 14px;
+  }
+  .haikuCardMovie {
+    width: 150px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -114,5 +121,12 @@
   }
   .haikuCardMovie {
     font-size: 13px;
+  }
+  .commentLink,
+  .haikuCardMovie {
+    font-size: 10px;
+  }
+  .haikuCardMovie {
+    width: 100px;
   }
 }

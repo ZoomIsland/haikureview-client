@@ -1,8 +1,6 @@
 import React from 'react';
 
 import MovieSearch from '../../containers/MovieSearch/MovieSearch';
-
-import WordsModel from '../../models/words'
 import './AddHaikuForm.css';
 
 function AddHaikuForm(props) {
