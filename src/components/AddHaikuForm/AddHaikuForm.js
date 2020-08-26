@@ -1,7 +1,8 @@
 import React from 'react';
 
 import MovieSearch from '../../containers/MovieSearch/MovieSearch';
-import MovieSelect from '../MovieSelect/MovieSelect';
+
+import WordsModel from '../../models/words'
 import './AddHaikuForm.css';
 
 function AddHaikuForm(props) {
@@ -20,30 +21,37 @@ function AddHaikuForm(props) {
           name="title"
           onChange={props.handleInputChange}
           placeholder="e.g. Polishing Bowling Balls"
-          value={props.title}></input>
+          value={props.title}
+          // onBlur={() => {
+          //   WordsModel.getSyllables(props.title)
+          //     .then(res=>console.log(res))}}
+        ></input>
       <p className="haikuInputText">Haiku</p>
-      <label htmlFor="lineOne" />
       <input id="lineOne"
           className="lineOneInput" 
           name="lineOne"
           onChange={props.handleInputChange}
           placeholder="Never have I seen"
-          value={props.lineOne}></input>
-      <label htmlFor="lineTwo"></label>
+          value={props.lineOne}
+          onBlur={props.onLineFinish}></input>
+      <label htmlFor="lineOne" className={props.lOneSyl === 5 ? "" : "red"}>{props.lOneSyl} / 5 Syllables</label>
       <input id="lineTwo" 
           className="lineTwoInput" 
           name="lineTwo"
           onChange={props.handleInputChange}
           placeholder="A thing like Jesus, a cloth,"
-          value={props.lineTwo}></input>
-      <label htmlFor="lineThree"></label>
+          value={props.lineTwo}
+          onBlur={props.onLineFinish}></input>
+      <label htmlFor="lineTwo" className={props.lTwoSyl === 7 ? "" : "red"}>{props.lTwoSyl} / 7 Syllables</label>
       <input id="lineThree" 
           className="lineThreeInput" 
           name="lineThree"
           onChange={props.handleInputChange}
           placeholder="And his bowling ball."
-          value={props.lineThree}></input>
-      <button>Submit</button>
+          value={props.lineThree}
+          onBlur={props.onLineFinish}></input>
+      <label htmlFor="lineThree" className={props.lThreeSyl === 5 ? "" : "red"}>{props.lThreeSyl} / 5 Syllables</label>
+      <button class="submitHaikuBtn">Submit</button>
     </form>
   )
 }

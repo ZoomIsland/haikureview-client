@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import setAuthHeader from '../../utils/setAuthHeader';
 import MovieModel from '../../models/movies';
 import HaikuModel from '../../models/haikus';
+import WordsModel from '../../models/words';
 
 import AddHaikuForm from '../../components/AddHaikuForm/AddHaikuForm'
 import './NewHaiku.css'
@@ -14,11 +15,40 @@ class NewHaiku extends Component {
     lineOne: '',
     lineTwo: '',
     lineThree: '',
+    lOneSyl: 0,
+    lTwoSyl: 0,
+    lThreeSyl: 0,
     error: ''
   }
 
   handleInputChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  onLineFinish = (e) => {
+    let updateTarget, terms;
+    switch (e.target.name) {
+      case "lineOne":
+        updateTarget = "lOneSyl";
+        terms = this.state.lineOne;
+        break;
+      case "lineTwo":
+        updateTarget = "lTwoSyl";
+        terms = this.state.lineTwo;
+        break;
+      case "lineThree":
+        updateTarget = "lThreeSyl";
+        terms = this.state.lineThree;
+        break;
+    }
+    if (terms.length === 0) {
+      this.setState({[updateTarget]: 0})
+    } else {
+      WordsModel.getSyllables(terms)
+        .then(res => {
+          this.setState({[updateTarget]: res})
+        })
+    }
   }
 
   // Post request with user header
@@ -83,6 +113,10 @@ class NewHaiku extends Component {
                 lineOne={this.state.lineOne}
                 lineTwo={this.state.lineTwo}
                 lineThree={this.state.lineThree}
+                onLineFinish={this.onLineFinish}
+                lOneSyl={this.state.lOneSyl}
+                lTwoSyl={this.state.lTwoSyl}
+                lThreeSyl={this.state.lThreeSyl}
                 pageType="new" />
             { this.state.error &&
               <p className="addHaikuError">{this.state.error}</p>

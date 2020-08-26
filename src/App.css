@@ -74,3 +74,7 @@ button {
 .flex-center-column {
   flex-direction: column;
 }
+
+.red {
+  color: red;
+}
