@@ -5,6 +5,10 @@
   margin-right: 10px;
   box-sizing: border-box;
   border: 2px solid black;
+  flex-shrink: 0;
+}
+.movieCard:last-child {
+  margin: 0;
 }
 .movieCard img {
   height: 100%;
@@ -24,12 +28,17 @@
   opacity: 0;
   transition: 250ms;
 }
+.titleHolder hr {
+  color: white;
+  width: 90%;
+  margin: 4px 0px;
+}
 .movieCard p {
   top: 0;
   width: 90%;
   text-align: center;
   color: white;
-  font-size: 22px;
+  font-size: 18px;
   font-family: Roboto;
 }
 
