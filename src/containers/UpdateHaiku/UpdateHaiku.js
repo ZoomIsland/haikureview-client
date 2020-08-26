@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import setAuthHeader from '../../utils/setAuthHeader'
 
-import SearchBar from '../../components/SearchBar/SearchBar';
+import WordsModel from '../../models/words'
 import AddHaikuForm from '../../components/AddHaikuForm/AddHaikuForm'
 import '../NewHaiku/NewHaiku.css'
 
@@ -14,7 +14,11 @@ class UpdateHaiku extends Component {
     lineOne: '',
     lineTwo: '',
     lineThree: '',
-    movieTitle: ''
+    movieTitle: '',
+    lOneSyl: 0,
+    lTwoSyl: 0,
+    lThreeSyl: 0,
+    error: ''
   }
   componentDidMount() {
     const haiku_id = this.props.match.params.id;
@@ -26,17 +30,52 @@ class UpdateHaiku extends Component {
         this.setState({lineThree: res.data.line_three})
         this.setState({movieTitle: res.data.movie.title})
         this.setState({movie: res.data.movie.id})
+        WordsModel.getSyllables(this.state.lineOne)
+          .then(res => {
+            this.setState({lOneSyl: res})
+          })
+        WordsModel.getSyllables(this.state.lineTwo)
+          .then(res => {
+            this.setState({lTwoSyl: res})
+          })
+        WordsModel.getSyllables(this.state.lineThree)
+          .then(res => {
+            this.setState({lThreeSyl: res})
+          })
       })
-      .catch((err) => {
-        console.log(err)
-      })
+      .catch(err =>  console.log(err))
   }
 
   handleInputChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  // Post request with user header
+  onLineFinish = (e) => {
+    let updateTarget, terms;
+    switch (e.target.name) {
+      case "lineOne":
+        updateTarget = "lOneSyl";
+        terms = this.state.lineOne;
+        break;
+      case "lineTwo":
+        updateTarget = "lTwoSyl";
+        terms = this.state.lineTwo;
+        break;
+      case "lineThree":
+        updateTarget = "lThreeSyl";
+        terms = this.state.lineThree;
+        break;
+    }
+    if (terms.length === 0) {
+      this.setState({[updateTarget]: 0})
+    } else {
+      WordsModel.getSyllables(terms)
+        .then(res => {
+          this.setState({[updateTarget]: res})
+        })
+    }
+  }
+
   handleSubmit = (e) => {
     const haiku_id = this.props.match.params.id;
     e.preventDefault();
@@ -74,6 +113,10 @@ class UpdateHaiku extends Component {
                 lineOne={this.state.lineOne}
                 lineTwo={this.state.lineTwo}
                 lineThree={this.state.lineThree}
+                onLineFinish={this.onLineFinish}
+                lOneSyl={this.state.lOneSyl}
+                lTwoSyl={this.state.lTwoSyl}
+                lThreeSyl={this.state.lThreeSyl}
                 pageType="update" />
           </div>
         </div>
