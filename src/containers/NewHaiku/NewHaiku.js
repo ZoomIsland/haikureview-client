@@ -18,7 +18,6 @@ class NewHaiku extends Component {
   }
 
   handleInputChange = (e) => {
-    console.log(e.target.data)
     this.setState({[e.target.name]: e.target.value})
   }
 
@@ -65,23 +64,7 @@ class NewHaiku extends Component {
           })
           .catch(err => console.log(err))
       }
-      // const data = {
-      //   movie: parseInt(this.state.movie),
-      //   title: this.state.title,
-      //   line_one: this.state.lineOne,
-      //   line_two: this.state.lineTwo,
-      //   line_three: this.state.lineThree,
-      //   user: this.props.currentUser
-      // }
-      // axios.post(`${process.env.REACT_APP_API}/newhaiku/`, data)
-      //   .then(res => {
-      //     this.props.history.goBack()
-      //   })
-      //   .catch(err => console.log(err))
     }
-
-
-
   }
 
   render() {

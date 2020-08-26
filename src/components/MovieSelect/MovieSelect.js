@@ -1,8 +1,16 @@
 import React from 'react';
 
 function MovieSelect(props) {
-  const movieList = props.movies.map((movie, index) => {
-    return <option key={index} value={JSON.stringify(movie)} data-title="test">{movie.title}</option>
+  const moviesSansHaiku = [];
+  for (let i = 0; i < props.movies.length; i++) {
+    const currMovie = props.movies[i];
+    if (currMovie.haikus) {
+      currMovie.haikus = [];
+    }
+    moviesSansHaiku.push(currMovie);
+  }
+  const movieList = moviesSansHaiku.map((movie, index) => {
+    return <option key={index} value={JSON.stringify(movie)}>{movie.title}</option>
   })
   return (
     <select name="movie" value={props.movieValue} onChange={props.handleInputChange}>
