@@ -1,9 +1,10 @@
 @keyframes searchOpen {
   from {height: 0px;}
-  to {height: 242px;}
+  to {height: 250px;}
 }
 
 .movieSearch {
   width: 100vw;
   overflow: hidden;
+  animation: searchOpen 1s 1;
 }

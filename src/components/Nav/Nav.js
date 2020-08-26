@@ -61,14 +61,7 @@ class Nav extends Component {
             console.log("Must submit a login or signup!")
           }
         }
-
-        drawerOpen = () => {
-            document.documentElement.style.setProperty('--nav-height', '300px')
-        }
-        drawerClose = () => {
-          document.documentElement.style.setProperty('--nav-height', '50px')
-        }
-        
+       
         render() {
           return (
       <nav>
@@ -78,15 +71,13 @@ class Nav extends Component {
             to="/" 
             onClick={(e) => {
               this.formAppear(e);
-              this.drawerClose();
               this.props.onMainClick()}} 
             value="">Haiku Review</NavLink>
         </h1>
         <div className="navLinks">
           <NavLink 
             to="/movies/"><div className="navSearch" value="" onClick={(e) => {
-              this.formAppear(e);
-              this.drawerOpen()}
+              this.formAppear(e)}
             }>Search Movies</div></NavLink>
           {/* <a href="#">Random Haiku</a> */}
           {!this.props.currentUser && (
@@ -104,7 +95,6 @@ class Nav extends Component {
                 to={`/profiles/${this.props.currentUser}`} 
                 onClick={(e) => {
                   this.formAppear(e);
-                  this.drawerOpen();
                   this.props.onProfileClick()}}><div className="navProfile">Profile</div></NavLink>
               <button onClick={this.props.logout}>Logout</button>
             </React.Fragment>
@@ -129,8 +119,7 @@ class Nav extends Component {
           <Routes 
             currentUser={this.props.currentUser} 
             onMovieClick={this.props.onMovieClick}
-            onProfileMovieClick={this.props.onProfileMovieClick}
-            drawerToggle={this.drawerToggle} />
+            onProfileMovieClick={this.props.onProfileMovieClick} />
         </div>
       </nav>
     )

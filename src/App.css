@@ -5,7 +5,6 @@
 }
 
 :root {
-  --nav-height: 50px;
   --red-velvet: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
   --cherry-blossom: url("https://images.unsplash.com/photo-1522382955582-23b67919cca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
   --drawer-color: url("https://images.unsplash.com/photo-1498962342534-ee08a0bb1d45?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80");
@@ -14,22 +13,39 @@
   --rose-gold: linear-gradient(to bottom right,#E09082, #d2a46d, #E09082);
 }
 
-
-.app {
-  padding-top: var(--nav-height);
+#root {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 50px);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex-shrink: 1;
+  overflow: hidden;
   background-image: var(--cherry-blossom);
   background-size: cover;
   position: relative;
-  transition: padding-top 1s;
+  overflow: scroll;
+}
+
+@keyframes drawerOpen {
+  from {height: 0px;}
+  to {height: 300px;}
+}
+
+.topSpacer {
+  height: 300px;
+  width: 100vw;
+  animation: drawerOpen 1s 1;
+  background: black;
 }
 
 .mainContainer {
-  flex: 1 0 auto;
   max-height: calc(100vh - 50px);
-  overflow: scroll;
+  padding-top: 50px;
 }
 
 .mainContainer,

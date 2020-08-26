@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
 import setAuthHeader from './utils/setAuthHeader';
-import HaikuRoutes from './config/HaikuRoutes'
+import SpacerRoutes from './config/SpacerRoutes';
+import HaikuRoutes from './config/HaikuRoutes';
 import HaikuModel from './models/haikus';
 import './App.css';
 
@@ -83,18 +84,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <Nav setCurrentUser={this.setCurrentUser} 
-             currentUser={this.state.currentUser}
-             logout={this.logout}
-             onMainClick={this.onMainClick}
-             onMovieClick={this.onMovieClick}
-             onProfileClick={this.onProfileClick}
-             onProfileMovieClick={this.onProfileMovieClick} />
-        <HaikuRoutes 
-          currentUser={this.state.currentUser}
-          haikus={this.state.haikus} />
-      </div>
+      <>
+        <SpacerRoutes />
+        <div className="app">
+          <Nav setCurrentUser={this.setCurrentUser} 
+              currentUser={this.state.currentUser}
+              logout={this.logout}
+              onMainClick={this.onMainClick}
+              onMovieClick={this.onMovieClick}
+              onProfileClick={this.onProfileClick}
+              onProfileMovieClick={this.onProfileMovieClick} />
+          <HaikuRoutes 
+            currentUser={this.state.currentUser}
+            haikus={this.state.haikus} />
+        </div>
+      </>
     );
   }
 }

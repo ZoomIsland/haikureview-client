@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import OmdbApi from 'omdb-api-pt';
 
 import MovieModel from '../../models/movies';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import MovieRoutes from '../../config/MovieRoutes';
-import MovieList from '../../components/MovieList/MovieList';
 import './MovieSearch.css'
 
 class MovieSearch extends Component {
