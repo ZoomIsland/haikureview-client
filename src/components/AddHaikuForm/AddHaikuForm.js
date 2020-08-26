@@ -12,7 +12,8 @@ function AddHaikuForm(props) {
         <MovieSearch 
           searchPlaceholder="What movie would you like to review?"
           handleInputChange={props.handleInputChange}
-          movie={props.movie} />
+          movie={props.movie}
+          type="add" />
       }
       {props.pageType === 'update' && <p>Movie selected:  {props.movieTitle}</p>}
       <label htmlFor="haikuTitle" className="titleInputText">Title:</label>
@@ -22,9 +23,6 @@ function AddHaikuForm(props) {
           onChange={props.handleInputChange}
           placeholder="e.g. Polishing Bowling Balls"
           value={props.title}
-          // onBlur={() => {
-          //   WordsModel.getSyllables(props.title)
-          //     .then(res=>console.log(res))}}
         ></input>
       <p className="haikuInputText">Haiku</p>
       <input id="lineOne"
@@ -51,7 +49,7 @@ function AddHaikuForm(props) {
           value={props.lineThree}
           onBlur={props.onLineFinish}></input>
       <label htmlFor="lineThree" className={props.lThreeSyl === 5 ? "" : "red"}>{props.lThreeSyl} / 5 Syllables</label>
-      <button class="submitHaikuBtn">Submit</button>
+      <button className="submitHaikuBtn">Submit</button>
     </form>
   )
 }

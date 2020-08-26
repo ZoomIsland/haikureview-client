@@ -37,9 +37,17 @@ class MovieSearch extends Component {
     }
   }
 
+  typeTest = () => {
+    if (this.props.type === "add") {
+      return  "none"
+    } else {
+      return 'searchOpen 1s 1'
+    }
+  }
+
   render() {
     return(
-      <div className="movieSearch flex-center-column">
+      <div className="movieSearch flex-center-column" style={{animation: this.typeTest()}}>
         <SearchBar 
           handleInputChange={this.handleInputChange} 
           onSearch={this.onSearch} 

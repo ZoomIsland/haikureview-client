@@ -6,5 +6,5 @@
 .movieSearch {
   width: 100vw;
   overflow: hidden;
-  animation: searchOpen 1s 1;
+  /* animation: searchOpen 1s 1; */
 }

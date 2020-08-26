@@ -6,7 +6,7 @@ class WordModel {
       const termsArray = terms.split(" ")
       // Promises across an array found at
       // https://stackoverflow.com/questions/31413749/node-js-promise-all-and-foreach
-      const callWords = function callServer(term){ // sample async action
+      const callWords = function callServer(term) { // sample async action
         return new Promise(resolve => {
           resolve(fetch(`https://api.datamuse.com/words?sp=${term}&md=s`)
           .then(res => res.json())
