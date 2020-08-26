@@ -8,7 +8,7 @@ import './CommentCard.css'
 function CommentCard(props) {
     return (
       <section className="commentCard flex-center">
-        <div className="innerComment">
+        <div className="innerComment innerCardContainer">
           {props.currentUser && 
             <CommentInput 
               userRating={props.userRating} 
@@ -16,11 +16,10 @@ function CommentCard(props) {
               handleInputChange={props.handleInputChange} 
               onCommentSubmit={props.onCommentSubmit} />
           }
-          {/* if props.comments */}
           <CommentList comments={props.comments} />
         </div>
       </section>
     )
 }
 
-export default withRouter(CommentCard);
+export default CommentCard;

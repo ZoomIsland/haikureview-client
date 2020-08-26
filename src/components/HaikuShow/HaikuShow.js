@@ -32,6 +32,14 @@ class HaikuShow extends Component {
     }
   }
 
+  changeCommentText = () => {
+    if (this.props.currentUser) {
+      return "Add Comment/Rating"
+    } else {
+      return "See Comments/Ratings"
+    }
+  }
+
   handleInputChange = (e) => {
     if (e.target.name) {
       this.setState({[e.target.name]: e.target.value})
@@ -65,10 +73,14 @@ class HaikuShow extends Component {
 
   ratingCount = () => {
     let totalRating = 0;
+    let ratingCount = this.state.comments.length
     this.state.comments.forEach(comment => {
       totalRating += comment.rating
+      if (comment.rating === 0) {
+        ratingCount--;
+      }
     })
-    return (totalRating / this.state.comments.length);
+    return (totalRating / ratingCount);
   }
 
   onDelete = (id) => {
@@ -95,12 +107,12 @@ class HaikuShow extends Component {
             <p className='haikuText'>{this.props.haiku.line_three}</p>
             {/* Add below back in once related works */}
             {this.props.haiku.movie &&
-              <Link to ={`/movies/${this.props.haiku.movie.id}`}><p className='haikuCardMovie'>{this.props.haiku.movie.title}</p></Link>
+              <p className='haikuCardMovie'>{this.props.haiku.movie.title}</p>
             }
             {/* if haiku.comments */}
             {/* probably need to change text if currentUser too */}
             {this.props.haiku.id !== 0 &&
-              <p className="commentLink" onClick={this.toggleComments}>View comments</p>
+              <p className="commentLink" onClick={this.toggleComments}>{this.changeCommentText()}</p>
             }
             {/* <p className='haikuCardUser'>{this.props.haiku.user.display_name}</p> */}
           </div>
