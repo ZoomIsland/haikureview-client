@@ -41,7 +41,7 @@ class MovieModel {
               const moviesArray = haikuApiResults;
               omdbResults.forEach(omdbResult => {
                 omdbResult.id = 0;
-                omdbResult.title = omdbResult.Title
+                omdbResult.title = `${omdbResult.Title} (${omdbResult.Year})`;
                 moviesArray.push(omdbResult)
               }) 
               const sortedMovies = moviesArray.sort(function (a, b) {
