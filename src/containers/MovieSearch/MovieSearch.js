@@ -41,7 +41,7 @@ class MovieSearch extends Component {
 
   render() {
     return(
-      <div className="movieSearch">
+      <div className="movieSearch flex-center-column">
         <SearchBar 
           handleInputChange={this.handleInputChange} 
           onSearch={this.onSearch} 

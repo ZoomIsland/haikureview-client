@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import setAuthHeader from '../../utils/setAuthHeader';
 import MovieModel from '../../models/movies';
@@ -14,7 +13,8 @@ class NewHaiku extends Component {
     title: '',
     lineOne: '',
     lineTwo: '',
-    lineThree: ''
+    lineThree: '',
+    error: ''
   }
 
   handleInputChange = (e) => {
@@ -25,11 +25,11 @@ class NewHaiku extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (!this.state.title || !this.state.lineOne || !this.state.lineTwo || !this.state.lineThree) {
-      console.log("Fill out the full Haiku!")
+      this.setState({error: "*Fill out the full Haiku!"})
     }
     const movieIndex = (parseInt(this.state.movie) - 1)
     if (movieIndex === -1) {
-      console.log("no movie selected!")
+      this.setState({error: "*Select a movie to review!"})
     } else {
       const chosenMovie = JSON.parse(this.state.movie);
       let token = localStorage.getItem('token');
@@ -84,6 +84,9 @@ class NewHaiku extends Component {
                 lineTwo={this.state.lineTwo}
                 lineThree={this.state.lineThree}
                 pageType="new" />
+            { this.state.error &&
+              <p className="addHaikuError">{this.state.error}</p>
+            }
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ function MovieSelect(props) {
     return <option key={index} value={JSON.stringify(movie)}>{movie.title}</option>
   })
   return (
-    <select name="movie" value={props.movieValue} onChange={props.handleInputChange}>
+    <select className="movieSelect" name="movie" value={props.movieValue} onChange={props.handleInputChange}>
       <option value="null">Select a movie</option>
       {movieList}
     </select>
