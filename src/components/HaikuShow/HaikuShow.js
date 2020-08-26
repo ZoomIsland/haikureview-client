@@ -130,7 +130,8 @@ class HaikuShow extends Component {
             userRating={this.state.userRating}
             userComment={this.state.userComment}
             handleInputChange={this.handleInputChange}
-            onCommentSubmit={this.onCommentSubmit} />
+            onCommentSubmit={this.onCommentSubmit}
+            toggleComments={this.toggleComments} />
         }
       </div>
     )

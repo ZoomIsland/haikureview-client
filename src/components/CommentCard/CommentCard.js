@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React from 'react';
 
 import CommentInput from './CommentInput/CommentInput';
 import CommentList from './CommentList/CommentList';
@@ -9,6 +8,7 @@ function CommentCard(props) {
     return (
       <section className="commentCard flex-center">
         <div className="innerComment innerCardContainer">
+          <i className="fas fa-times commentClose" onClick={props.toggleComments}></i>
           {props.currentUser && 
             <CommentInput 
               userRating={props.userRating} 
