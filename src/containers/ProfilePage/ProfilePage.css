@@ -8,7 +8,7 @@
 }
 .profileContainer {
   width: 100vw;
-  background: blue;
+  background: var(--drawer-color);
   height: 250px;
   animation: profileOpen 1 1s;
   overflow: hidden;

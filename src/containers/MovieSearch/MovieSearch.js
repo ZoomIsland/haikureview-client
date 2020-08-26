@@ -27,53 +27,14 @@ class MovieSearch extends Component {
     this.setState({movieSearch: e.target.value})
   }
   onSearch = (e) => {
-    let omdbResults, haikuApiResults;
     e.preventDefault();
     if (this.state.movieSearch) {
-      
-      // THIS CALL WORKS -- SO WHERE ARE THE RESULTS?
-      // MovieModel.searchAPIs(this.state.movieSearch)
-
-
-
-      // THIS RENDERS RESULTS JUSSS FINE
-      MovieModel.searchOMDB(this.state.movieSearch)
-        .then(res => {
-          let movies = res.Search
-          omdbResults = movies.filter(movie => movie.Poster !== "N/A")
-          MovieModel.searchHaikuDB(this.state.movieSearch)
-            .then(res => {
-              haikuApiResults = res.data
-              const moviesArray = haikuApiResults;
-              omdbResults.forEach(omdbResult => {
-                omdbResult.id = 0;
-                omdbResult.title = omdbResult.Title
-                moviesArray.push(omdbResult)
-              }) 
-              const sortedMovies = moviesArray.sort(function (a, b) {
-                if (a.title < b.title) {
-                  return -1;
-                }
-                if (a.title > b.title) {
-                  return 1;
-                }
-                return 0;
-              })
-              for (let i = 0; i < (sortedMovies.length - 1); i++) {
-                if (sortedMovies[i].title === sortedMovies[i + 1].title) {
-                  if (sortedMovies[i].Title) {
-                    sortedMovies.splice(i, 1)
-                  } else {
-                    sortedMovies.splice((i + 1), 1)
-                  }
-                }
-              }
-              this.setState({movies: sortedMovies})
-            })
-            .catch(err => console.log(err))
-          // this.setState({movies: movies})
+      MovieModel.searchAPIs(this.state.movieSearch)
+        .then(res=> {
+          console.log(res)
+          this.setState({movies: res})
         })
-        .catch(err => console.error(err))
+        .catch(err=> console.log(err))
     }
   }
 
