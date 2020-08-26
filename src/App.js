@@ -52,6 +52,9 @@ class App extends Component {
   }
 
   onMovieClick = (movie_id) => {
+    if (movie_id === 0) {
+      this.setState({haikus: []})
+    }
     HaikuModel.getMovieHaikus(movie_id)
       .then((res) => {
         this.setState({haikus: res.data.haikus})

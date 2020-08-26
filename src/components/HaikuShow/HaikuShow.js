@@ -99,7 +99,9 @@ class HaikuShow extends Component {
             }
             {/* if haiku.comments */}
             {/* probably need to change text if currentUser too */}
-            <p className="commentLink" onClick={this.toggleComments}>View comments</p>
+            {this.props.haiku.id !== 0 &&
+              <p className="commentLink" onClick={this.toggleComments}>View comments</p>
+            }
             {/* <p className='haikuCardUser'>{this.props.haiku.user.display_name}</p> */}
           </div>
           {this.props.currentUser === this.props.haiku.user && 

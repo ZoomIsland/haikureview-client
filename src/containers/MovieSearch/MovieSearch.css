@@ -13,8 +13,3 @@
   animation: searchOpen 1 1s;
   overflow: hidden;
 }
-
-.searchMovieList {
-  margin: 10px;
-  width: calc(100vw - 20px);
-}
