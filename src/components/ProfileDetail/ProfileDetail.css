@@ -55,3 +55,9 @@
   font-family: Roboto;
   padding: 3px;
 }
+
+@media only screen and (max-width: 600px) {
+  .profileDetail {
+    width: 175px;
+  }
+}

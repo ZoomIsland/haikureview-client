@@ -31,5 +31,11 @@
   margin-left: 10px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 600px) {
+  .profileData {
+    width: 200px;
+  }
+  .profileMovies {
+    width: calc(100vw - 200px);
+  }
 }

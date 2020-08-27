@@ -2,8 +2,8 @@ import React from 'react';
 
 function SignupBox(props) {
   return (
-    <div className="signupBox">
-      <form className="flex-column-center" onSubmit={props.handleSubmit}>
+    <div className="dropBox">
+      <form onSubmit={props.handleSubmit}>
       <label htmlFor="signuser" />
       <input onChange={props.handleChange} id="signuser" name="username" placeholder="Username" value={props.username} />
       <label htmlFor="signemail" />

@@ -1,7 +1,4 @@
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 50px;
   width: 100vw;
   background: black;
@@ -9,6 +6,15 @@ nav {
   position: fixed;
   top: 0;
   z-index: 25;
+}
+.navBarActual {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: black;
+  z-index: 30;
 }
 nav a {
   color: white;
@@ -27,7 +33,6 @@ nav a {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  z-index: 25;
   background: black;
   align-items: center;
   height: 50px;
@@ -74,46 +79,46 @@ nav a {
 }
 
 @keyframes boxDrop {
-  from {top: -200px;}
-  to {top: 50px;}
+  from {height: 0;}
+  to {height: 200px;}
 }
 
-.loginBox,
-.signupBox {
+.dropBox {
   position: absolute;
   right: 27px;
   top: 50px;
   width: 300px;
+  height: 200px;
   padding-top: 10px;
-  background: darkgray;
-  border-radius: 0 0 10px 10px;
-  z-index: 24;
+  background-image: url("https://images.unsplash.com/photo-1522173096622-763cc9d35a3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  z-index: 27;
   animation: boxDrop 1 750ms;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.25);
+  border-radius: 0px 0px 5px 5px;
+  overflow: hidden;
 }
-.loginBox form,
-.signupBox form {
-  height: 100%;
-  width: 100%;
+.dropBox form {
+  height: 200px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-.loginBox input,
-.signupBox input {
+.dropBox input {
   display: block;
   margin: 5px;
   height: 30px;
   width: 250px;
   font-size: 16px;
   border-radius: 5px;
+  padding-left: 2px;
 }
-.loginBox button,
-.signupBox button {
+.dropBox button {
   height: 35px;
   width: 100px;
-  background: red;
   font-size: 20px;
-  color: white;
-  border-radius: 10px;
   margin-bottom: 15px;
-  cursor: pointer;
 }
 
 @keyframes searchOpen {
@@ -126,13 +131,15 @@ nav a {
   background: var(--drawer-color);
   background-size: cover;
   overflow: hidden;
+  z-index: 20;
 }
 
 @media only screen and (max-width: 750px) {
-  nav {
+  .navBarActual {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: black;
     height: 75px;
   }
   .siteName {
@@ -155,6 +162,12 @@ nav a {
     width: auto;
   }
   .haikuOrderDrawers {
+    top: 75px;
+  }
+  
+  .dropBox {
+    position: absolute;
+    right: 0;
     top: 75px;
   }
 }

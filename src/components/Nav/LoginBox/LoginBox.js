@@ -2,8 +2,8 @@ import React from 'react';
 
 function LoginBox(props) {
   return (
-    <div className="loginBox">
-      <form className="flex-center-column" onSubmit={props.handleSubmit}>
+    <div className="dropBox">
+      <form onSubmit={props.handleSubmit}>
         <label htmlFor="username" />
         <input onChange={props.handleChange} id="username" name="username" placeholder="Username" value={props.username} />
         <label htmlFor="password" />
