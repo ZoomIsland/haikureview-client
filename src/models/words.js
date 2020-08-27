@@ -3,6 +3,7 @@ class WordModel {
     if (terms.length === 0) {
       return 0;
     } else {
+      terms = terms.replace("?", "")
       const termsArray = terms.split(" ")
       // Promises across an array found at
       // https://stackoverflow.com/questions/31413749/node-js-promise-all-and-foreach

@@ -10,7 +10,9 @@ function ProfileDetail(props) {
       <hr />
       <p>Member since {props.data.profile.join_date}</p>
       <p>{props.data.haikus.length} haikus written</p>
-      <button className="updateProfileBtn flex-center" onClick={props.toggleUpdate}>Update Profile</button>
+      {props.currentUser === props.data.profile.user &&
+        <button className="updateProfileBtn flex-center" onClick={props.toggleUpdate}>Update Profile</button>
+      }
     </div>
   )
 }
