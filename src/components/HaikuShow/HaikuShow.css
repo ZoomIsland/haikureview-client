@@ -39,7 +39,8 @@
 .haikuCardMovie,
 .haikuCardUser {
   position: absolute;
-  bottom: 15px;
+  top: 15px;
+  width: 200px;
 }
 .haikuCardMovie {
   left: 15px;
@@ -47,6 +48,7 @@
 }
 .haikuCardUser {
   right: 15px;
+  text-align: right;
 }
 
 .haikuBtns {
@@ -123,10 +125,12 @@
     font-size: 13px;
   }
   .commentLink,
-  .haikuCardMovie {
+  .haikuCardMovie,
+  .haikuCardUser {
     font-size: 10px;
   }
-  .haikuCardMovie {
+  .haikuCardMovie,
+  .haikuCardUser {
     width: 100px;
   }
 }

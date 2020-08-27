@@ -16,14 +16,6 @@ class HaikuShow extends Component {
     userComment: ''
   }
 
-  // componentDidMount() {
-  //   axios.get(`${process.env.REACT_APP_API}/comments/${this.props.haiku.id}/`)
-  //     .then(res => {
-  //       this.setState({comments: res.data.comments})
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-
   toggleComments = () => {
     if (this.state.commentShow === false) {
       this.setState({commentShow: true});
@@ -108,16 +100,15 @@ class HaikuShow extends Component {
             <p className='haikuText'>{this.props.haiku.line_one}</p>
             <p className='haikuText'>{this.props.haiku.line_two}</p>
             <p className='haikuText'>{this.props.haiku.line_three}</p>
-            {/* Add below back in once related works */}
             {this.props.haiku.movie &&
               <p className='haikuCardMovie'>{this.props.haiku.movie.title}</p>
             }
-            {/* if haiku.comments */}
-            {/* probably need to change text if currentUser too */}
             {this.props.haiku.id !== 0 &&
               <p className="commentLink" onClick={this.toggleComments}>{this.changeCommentText()}</p>
             }
-            {/* <p className='haikuCardUser'>{this.props.haiku.user.display_name}</p> */}
+            {this.props.haiku.user &&
+              <p className='haikuCardUser'>{this.props.haiku.user.profile.display_name}</p>
+            }
           </div>
           {this.props.currentUser === this.props.haiku.user && 
             <div className="haikuBtns">
