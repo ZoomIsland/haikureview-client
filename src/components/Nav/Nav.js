@@ -16,7 +16,8 @@ class Nav extends Component {
   }
 
   formAppear = (e) => {
-    this.setState({formType: e.target.value})
+    console.log(e.currentTarget.dataset)
+    this.setState({formType: e.currentTarget.dataset.formtype})
   }
   
   handleChange = (e) => {
@@ -71,21 +72,20 @@ class Nav extends Component {
               onClick={(e) => {
                 this.formAppear(e);
                 this.props.onMainClick()}} 
-              value="">Haiku Review</NavLink>
+              data-formType="">Haiku Review</NavLink>
           </h1>
           <div className="navLinks">
             <NavLink 
-              to="/movies/"><div className="navSearch" value="" onClick={(e) => {
+              to="/movies/"><div className="navSearch" data-formType="" onClick={(e) => {
                 this.formAppear(e);
                 this.props.navOpen()}
               }>Search Movies</div></NavLink>
-            {/* <a href="#">Random Haiku</a> */}
             {!this.props.currentUser && (
               <React.Fragment>
-                <button className="navLogBtns" onClick={(e) => {
-                  this.formAppear(e)}} value="login">Login</button>
-                <button className="navLogBtns" onClick={(e) => {
-                  this.formAppear(e)}} value="signup">Sign Up</button>
+                <div className="navLogBtns" onClick={(e) => {
+                  this.formAppear(e)}} data-formType="login">Login</div>
+                <div className="navLogBtns" onClick={(e) => {
+                  this.formAppear(e)}} data-formType="signup">Sign Up</div>
               </React.Fragment>
             )}
             {this.props.currentUser && (
@@ -97,7 +97,7 @@ class Nav extends Component {
                     this.formAppear(e);
                     this.props.navOpen();
                     this.props.onProfileClick()}}><div className="navProfile">Profile</div></NavLink>
-                <button className="navLogBtns" onClick={this.props.logout}>Logout</button>
+                <div className="navLogBtns" onClick={this.props.logout}>Logout</div>
               </React.Fragment>
             )}
           </div>

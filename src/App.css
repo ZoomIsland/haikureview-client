@@ -62,7 +62,7 @@ a {
 
 /* General styling */
 button {
-  padding: 10px;
+  margin: 0 auto;
   background: var(--brass);
   color: black;
   height: 50px;
