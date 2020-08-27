@@ -6,6 +6,7 @@
   box-sizing: border-box;
   border: 2px solid black;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .movieCard:last-child {
   margin: 0;
