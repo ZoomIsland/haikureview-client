@@ -35,7 +35,6 @@ nav a {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  background: black;
   align-items: center;
   height: 50px;
 }
@@ -152,7 +151,6 @@ nav a {
     width: 100vw;
     height: 20px;
     margin-bottom: 5px;
-    background: black;
     margin: 0;
     justify-content: center;
   }
