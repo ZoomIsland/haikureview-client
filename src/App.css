@@ -94,3 +94,10 @@ button {
 .red {
   color: red;
 }
+
+@media only screen and (max-width: 750px) {
+  .mainContainer {
+    max-height: calc(100vh - 75px);
+    padding-top: 75px;
+  }
+}

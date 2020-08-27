@@ -28,7 +28,6 @@ nav a {
   justify-content: flex-end;
   margin-right: 20px;
   z-index: 25;
-  width: 450px;
   background: black;
   align-items: center;
   height: 50px;
@@ -127,4 +126,35 @@ nav a {
   background: var(--drawer-color);
   background-size: cover;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 750px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75px;
+  }
+  .siteName {
+    font-size: 30px;
+  }
+  .navLinks {
+    width: 100vw;
+    height: 20px;
+    margin-bottom: 5px;
+    background: black;
+    margin: 0;
+    justify-content: center;
+  }
+  .navSearch,
+  .navAdd,
+  .navProfile,
+  .navLinks button {
+    font-size: 16px;
+    margin: 0px 3px;
+    width: auto;
+  }
+  .haikuOrderDrawers {
+    top: 75px;
+  }
 }

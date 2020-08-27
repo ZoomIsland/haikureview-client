@@ -92,12 +92,14 @@
 @media only screen and (max-width: 600px) {
   .commentCard {
     width: 330px;
+    height: 300px;
   }
   .innerComment {
     width: 290px;
+    height: 260px;
   }
   .commentActual p {
-    font-size: 14px;
+    font-size: 12px;
   }
   .userComment button {
     font-size: 14px;
