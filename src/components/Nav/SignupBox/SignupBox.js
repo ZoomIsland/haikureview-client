@@ -9,7 +9,7 @@ function SignupBox(props) {
       <label htmlFor="signemail" />
       <input onChange={props.handleChange} id="signemail" name="email" placeholder="Email" value={props.email} />
       <label htmlFor="signpass" />
-      <input onChange={props.handleChange} id="signpass" name="password" placeholder="Password" value={props.password} />
+      <input onChange={props.handleChange} id="signpass" name="password" placeholder="Password" value={props.password} type="password" />
       <button>Register</button>
     </form>
   </div>
