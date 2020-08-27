@@ -90,7 +90,10 @@ class ProfilePage extends Component {
       <section className="profileContainer">
         <div className="profileData">
           {(this.state.userData.profile && this.state.update === false) && 
-            <ProfileDetail data={this.state.userData} toggleUpdate={this.toggleUpdate} />
+            <ProfileDetail 
+              data={this.state.userData} 
+              toggleUpdate={this.toggleUpdate}
+              currentUser={this.props.currentUser} />
           }
           {(this.state.userData.profile && this.state.update === true) && 
             <ProfileForm 
@@ -99,7 +102,8 @@ class ProfilePage extends Component {
               display_name={this.state.display_name}
               onInputChange={this.onInputChange}
               onImageDrop={this.onImageDrop}
-              toggleUpdate={this.toggleUpdate} />
+              toggleUpdate={this.toggleUpdate}
+              currentUser={this.props.currentUser} />
           }
         </div>
         <div className="profileMovies">
