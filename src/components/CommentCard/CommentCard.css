@@ -6,7 +6,7 @@
 }
 .innerComment {
   width: 710px;
-  height: 350px;
+  height: 360px;
   border: 4px solid #B7910A;
   padding: 10px;
   display: flex;
@@ -14,6 +14,17 @@
   align-items: center;
   justify-content: flex-start;
   overflow: scroll;
+  position: relative;
+}
+
+.commentClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+.commentClose:hover {
+  color: red
 }
 
 .commentInput {
@@ -68,4 +79,30 @@
 .commentUser {
   float: right;
   padding-bottom: 5px;
+}
+
+@media only screen and (max-width: 900px) {
+    .commentCard {
+      width: 550px;
+    }
+    .innerComment {
+      width: 510px;
+    }
+}
+@media only screen and (max-width: 600px) {
+  .commentCard {
+    width: 330px;
+    height: 300px;
+  }
+  .innerComment {
+    width: 290px;
+    height: 260px;
+  }
+  .commentActual p {
+    font-size: 12px;
+  }
+  .userComment button {
+    font-size: 14px;
+    height: 25px;
+  }
 }

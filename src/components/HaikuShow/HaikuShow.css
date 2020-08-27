@@ -39,7 +39,8 @@
 .haikuCardMovie,
 .haikuCardUser {
   position: absolute;
-  bottom: 15px;
+  top: 15px;
+  width: 200px;
 }
 .haikuCardMovie {
   left: 15px;
@@ -47,6 +48,7 @@
 }
 .haikuCardUser {
   right: 15px;
+  text-align: right;
 }
 
 .haikuBtns {
@@ -70,6 +72,16 @@
   text-decoration: underline;
 }
 
+.commentLink {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+.commentLink:hover {
+  text-decoration: underline;
+}
+
 @media only screen and (max-width: 900px) {
   .haikuCard {
     width: 580px;
@@ -84,6 +96,13 @@
   }
   .haikuText {
     font-size: 24px;
+  }
+  .commentLink,
+  .haikuCardMovie {
+    font-size: 14px;
+  }
+  .haikuCardMovie {
+    width: 150px;
   }
 }
 
@@ -104,5 +123,14 @@
   }
   .haikuCardMovie {
     font-size: 13px;
+  }
+  .commentLink,
+  .haikuCardMovie,
+  .haikuCardUser {
+    font-size: 10px;
+  }
+  .haikuCardMovie,
+  .haikuCardUser {
+    width: 100px;
   }
 }

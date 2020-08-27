@@ -42,27 +42,6 @@ class ProfilePage extends Component {
   onInputChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
-  // Image Uploader via this tutorial: https://css-tricks.com/image-upload-manipulation-react/
-  onImageDrop = (files) => {
-    // console.log(files[0])
-    this.setState({uploadedFile: files[0]});
-    // console.log(process.env.CLOUDINARY_UPLOAD_PRESET)
-    // const data = {
-    //   upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET,
-    //   file: files[0],
-    //   api_key: process.env.CLOUDINARY_API_KEY
-    // }
-    // axios.post(`https://api.cloudinary.com/v1_1/dwsfiv9ak/image/upload`, data)
-    //   .then((response) => {
-    //     console.log(response)
-    //     // if (response.body.secure_url !== '') {
-    //     //   this.setState({
-    //     //     picture_url: response.body.secure_url
-    //     //   })
-    //     // }
-    //   })
-    //   .catch(err => console.error(err))
-  }
 
   onUpdateSubmit = () => {
     const data = {
@@ -74,7 +53,6 @@ class ProfilePage extends Component {
   
     axios.put(`${process.env.REACT_APP_API}/updateprofile/${data.id}/`, data)
       .then(res => {
-        console.log(res)
         axios.get(`${process.env.REACT_APP_API}/profiles/${profile_id}/`)
           .then((res) => {
             const startData = res.data;
@@ -100,7 +78,6 @@ class ProfilePage extends Component {
 
   toggleUpdate = () => {
     if (this.state.update) {
-      console.log("this is where it would save...")
       this.onUpdateSubmit();
       this.setState({update: false})
     } else {

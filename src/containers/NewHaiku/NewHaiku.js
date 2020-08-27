@@ -1,53 +1,102 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
-import setAuthHeader from '../../utils/setAuthHeader'
+import setAuthHeader from '../../utils/setAuthHeader';
+import MovieModel from '../../models/movies';
+import HaikuModel from '../../models/haikus';
+import WordsModel from '../../models/words';
 
-import SearchBar from '../../components/SearchBar/SearchBar';
 import AddHaikuForm from '../../components/AddHaikuForm/AddHaikuForm'
 import './NewHaiku.css'
 
 class NewHaiku extends Component {
   state = {
-    movies: [],
-    movie: '0',
+    movie: "0",
     title: '',
     lineOne: '',
     lineTwo: '',
-    lineThree: ''
-  }
-  componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}/movies/`)
-      .then((res) => {
-        this.setState({movies: res.data})
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    lineThree: '',
+    lOneSyl: 0,
+    lTwoSyl: 0,
+    lThreeSyl: 0,
+    error: ''
   }
 
   handleInputChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  onLineFinish = (e) => {
+    let updateTarget, terms;
+    switch (e.target.name) {
+      case "lineOne":
+        updateTarget = "lOneSyl";
+        terms = this.state.lineOne;
+        break;
+      case "lineTwo":
+        updateTarget = "lTwoSyl";
+        terms = this.state.lineTwo;
+        break;
+      case "lineThree":
+        updateTarget = "lThreeSyl";
+        terms = this.state.lineThree;
+        break;
+    }
+    if (terms.length === 0) {
+      this.setState({[updateTarget]: 0})
+    } else {
+      WordsModel.getSyllables(terms)
+        .then(res => {
+          this.setState({[updateTarget]: res})
+        })
+    }
+  }
+
   // Post request with user header
   handleSubmit = (e) => {
     e.preventDefault();
-    let token = localStorage.getItem('token');
-    setAuthHeader(token)
-    const data = {
-      movie: parseInt(this.state.movie),
-      title: this.state.title,
-      line_one: this.state.lineOne,
-      line_two: this.state.lineTwo,
-      line_three: this.state.lineThree,
-      user: this.props.currentUser
+    if (!this.state.title || !this.state.lineOne || !this.state.lineTwo || !this.state.lineThree) {
+      this.setState({error: "*Fill out the full Haiku!"})
+    } else if (this.state.movie === "0") {
+      this.setState({error: "*Select a movie to review!"})
+    } else if (this.state.lOneSyl !== 5 || this.state.lTwoSyl !== 7 || this.state.lThreeSyl !== 5){ 
+      this.setState({error: "*Remember, haikus have 5 / 7 / 5 syllables!"})
+    } else {
+      const chosenMovie = JSON.parse(this.state.movie);
+      console.log(chosenMovie)
+      let token = localStorage.getItem('token');
+      setAuthHeader(token)
+      const haikuData = {
+        title: this.state.title,
+        line_one: this.state.lineOne,
+        line_two: this.state.lineTwo,
+        line_three: this.state.lineThree,
+        user: this.props.currentUser
+      }
+      if (chosenMovie.id === 0) {
+        const movieData = {
+          title: chosenMovie.title,
+          poster: chosenMovie.Poster,
+        }
+        MovieModel.createMovie(movieData)
+          .then(res => {
+            haikuData.movie = res.data.id
+            return HaikuModel.createHaiku(haikuData)
+              .then(res => {
+                this.props.afterHaikuAdd()
+              })
+              .catch(err => console.log(err))
+          })
+          .catch(err => console.log(err))
+      } else {
+        haikuData.movie = chosenMovie.id;
+        HaikuModel.createHaiku(haikuData)
+          .then(res => {
+            this.props.afterHaikuAdd()
+          })
+          .catch(err => console.log(err))
+      }
     }
-    axios.post(`${process.env.REACT_APP_API}/newhaiku/`, data)
-      .then(res => {
-        this.props.history.goBack()
-      })
-      .catch(err => console.log(err))
   }
 
   render() {
@@ -66,7 +115,14 @@ class NewHaiku extends Component {
                 lineOne={this.state.lineOne}
                 lineTwo={this.state.lineTwo}
                 lineThree={this.state.lineThree}
+                onLineFinish={this.onLineFinish}
+                lOneSyl={this.state.lOneSyl}
+                lTwoSyl={this.state.lTwoSyl}
+                lThreeSyl={this.state.lThreeSyl}
                 pageType="new" />
+            { this.state.error &&
+              <p className="addHaikuError">{this.state.error}</p>
+            }
           </div>
         </div>
       </div>
@@ -74,4 +130,4 @@ class NewHaiku extends Component {
   }
 }
 
-export default NewHaiku;
+export default withRouter(NewHaiku);

@@ -13,7 +13,7 @@ function HaikuCarousel (props) {
     line_one: "No haikus were found",
     line_two: "Which can only mean one thing:",
     line_three: "You should write one",
-    user: 0,
+    user: {id: 0},
     id: 0
   }
   return (

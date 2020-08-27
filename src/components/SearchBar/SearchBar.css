@@ -1,5 +1,5 @@
 .searchContainer {
-  width: 65%;
+  width: 800px;
 }
 
 .searchContainer input,
@@ -7,8 +7,8 @@
   margin-top: 10px;
 }
 .searchContainer input {
-  border: none;
-  width: 70%;
+  border: 1px solid black;
+  width: 60%;
   height: 40px;
   font-size: 24px;
   border-radius: 10px;
@@ -19,4 +19,33 @@
   width: 25%;
   height: 35px;
   font-size: 24px;
+}
+
+@media only screen and (max-width: 900px) {
+  .searchContainer {
+    width: 600px;
+  }
+  .addHaikuForm .searchContainer input {
+    height: 25px;
+    font-size: 18px;
+  }
+  .addHaikuForm .searchContainer button {
+    height: 25px;
+    width: 100px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .searchContainer {
+    width: 330px;
+  }
+  .searchContainer input,
+  .searchContainer button {
+    font-size: 16px;
+  }
+  .addHaikuForm .searchContainer input {
+    padding: 0;
+    font-size: 12px;
+  }
 }

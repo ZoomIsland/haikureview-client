@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -11,17 +11,9 @@ import './HaikuShow.css'
 class HaikuShow extends Component {
   state = {
     commentShow: false,
-    comments: [],
+    comments: null,
     userRating: 0,
     userComment: ''
-  }
-
-  componentDidMount() {
-    axios.get(`${process.env.REACT_APP_API}/comments/${this.props.haiku.id}/`)
-      .then(res => {
-        this.setState({comments: res.data.comments})
-      })
-      .catch(err => console.log(err))
   }
 
   toggleComments = () => {
@@ -29,6 +21,14 @@ class HaikuShow extends Component {
       this.setState({commentShow: true});
     } else {
       this.setState({commentShow: false})
+    }
+  }
+
+  changeCommentText = () => {
+    if (this.props.currentUser) {
+      return "Add Comment/Rating"
+    } else {
+      return "See Comments/Ratings"
     }
   }
 
@@ -64,18 +64,24 @@ class HaikuShow extends Component {
   }
 
   ratingCount = () => {
-    let totalRating = 0;
-    this.state.comments.forEach(comment => {
-      totalRating += comment.rating
-    })
-    return (totalRating / this.state.comments.length);
+    const comments = this.state.comments || this.props.haiku.comments;
+    if (this.props.haiku.comments) {
+      let totalRating = 0;
+      let ratingCount = comments.length
+      comments.forEach(comment => {
+        totalRating += comment.rating
+        if (comment.rating === 0) {
+          ratingCount--;
+        }
+      })
+      return (totalRating / ratingCount);
+    }
   }
 
   onDelete = (id) => {
     axios.delete(`${process.env.REACT_APP_API}/haikus/${id}/`)
     .then((res) => {
-      console.log(res.data)
-      // useHistory.go(0)
+      this.props.history.go(0)
     })
       .catch((err) => {
         console.log(err)
@@ -87,24 +93,22 @@ class HaikuShow extends Component {
       <div className="haikuContainer flex-center-column">
         <div className='haikuCard flex-center'>
           <div className='innerHaikuCard innerCardContainer'>
-            {/* if haiku.avgRating */}
             <StarDisplay rating={this.ratingCount()} />
             <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
             <p className='haikuText'>{this.props.haiku.line_one}</p>
             <p className='haikuText'>{this.props.haiku.line_two}</p>
             <p className='haikuText'>{this.props.haiku.line_three}</p>
-            {/* Add below back in once related works */}
             {this.props.haiku.movie &&
-              <Link to ={`/movies/${this.props.haiku.movie.id}`}><p className='haikuCardMovie'>{this.props.haiku.movie.title}</p></Link>
+              <p className='haikuCardMovie'>{this.props.haiku.movie.title}</p>
             }
-            {/* if haiku.comments */}
-            {/* probably need to change text if currentUser too */}
             {this.props.haiku.id !== 0 &&
-              <p className="commentLink" onClick={this.toggleComments}>View comments</p>
+              <p className="commentLink" onClick={this.toggleComments}>{this.changeCommentText()}</p>
             }
-            {/* <p className='haikuCardUser'>{this.props.haiku.user.display_name}</p> */}
+            {this.props.haiku.user.profile &&
+              <p className='haikuCardUser'>{this.props.haiku.user.profile.display_name}</p>
+            }
           </div>
-          {this.props.currentUser === this.props.haiku.user && 
+          {this.props.currentUser === this.props.haiku.user.id && 
             <div className="haikuBtns">
               <Link to={`/updatehaiku/${this.props.haiku.id}`}><div className="haikuEditBtn flex-center">Edit</div></Link>
               <div className="haikuDeleteBtn flex-center" onClick={() => {this.onDelete(this.props.haiku.id)}}>Delete</div>
@@ -114,15 +118,16 @@ class HaikuShow extends Component {
         {this.state.commentShow &&
           <CommentCard 
             currentUser={this.props.currentUser} 
-            comments={this.state.comments} 
+            comments={this.state.comments || this.props.haiku.comments} 
             userRating={this.state.userRating}
             userComment={this.state.userComment}
             handleInputChange={this.handleInputChange}
-            onCommentSubmit={this.onCommentSubmit} />
+            onCommentSubmit={this.onCommentSubmit}
+            toggleComments={this.toggleComments} />
         }
       </div>
     )
   }
 }
 
-export default HaikuShow;
+export default withRouter(HaikuShow);

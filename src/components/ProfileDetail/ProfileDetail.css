@@ -2,7 +2,7 @@
 .profileForm {
   width: 320px;
   height: 210px;
-  background: lightgray;
+  background: rgba(255,255,255,0.5);
   margin: 10px;
   font-family: Roboto;
   position: relative;
@@ -12,11 +12,6 @@
   position: relative;
 }
 
-/* .profileDetail img {
-  height: 180px;
-  margin: 10px;
-  float: left;
-} */
 .profileDetail h2 {
   margin-bottom: 10px;
 }
@@ -36,56 +31,6 @@
 .profileForm {
   display: flex;
 }
-/* .profileForm img {
-  height: 180px;
-  float: left;
-} */
-/* .imageUploadBox {
-  width: 150px;
-  height: 180px;
-  border: 1px dotted black;
-  margin-right: 10px;
-  padding: 10px;
-} */
-/* .fileUploader {
-  width: 150px !important;
-  height: 180px !important;
-
-}
-.fileContainer {
-  background: none !important;
-  box-shadow: none !important;
-  height: 180px;
-  margin: 0 !important;
-  padding: 0 !important;
-  position: relative !important;
-}
-.fileContainer button {
-  position: absolute;
-  bottom: 0;
-}
-.uploadPicturesWrapper,
-.uploadPicturesWrapper div {
-  position: absolute;
-  top: 0;
-}
-.uploadPictureContainer {
-  height: 105px !important;
-  width: 105px !important;
-  position: absolute !important;
-  top: 0 !important;
-  margin: 0 !important;
-  border-radius: 50%;
-  padding: 1px !important;
-  overflow:hidden;
-}
-.uploadPictureContainer img {
-  height: 105px !important;
-  width: 105px !important;
-  border-radius: 50%;
-  margin: 0 !important;
-  object-fit: cover;
-} */
 
 .displayNameForm {
   margin-bottom: 10px;
@@ -109,4 +54,10 @@
   font-size: 16px;
   font-family: Roboto;
   padding: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+  .profileDetail {
+    width: 175px;
+  }
 }

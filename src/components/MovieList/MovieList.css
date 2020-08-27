@@ -1,6 +1,7 @@
 .movieList {
-  margin: 10px;
+  margin: 15px 10px;
   height: 172px;
+  width: calc(100% - 30px);
   display: flex;
   overflow-x: scroll;
 }

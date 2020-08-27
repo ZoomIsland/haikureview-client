@@ -1,15 +1,10 @@
 @keyframes searchOpen {
   from {height: 0px;}
-  to {height: 242px;}
+  to {height: 250px;}
 }
 
 .movieSearch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   width: 100vw;
-  background: purple;
-  animation: searchOpen 1 1s;
   overflow: hidden;
+  /* animation: searchOpen 1s 1; */
 }

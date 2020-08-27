@@ -14,6 +14,9 @@ class HaikuModel {
   static getProfileHaikus = (user_id) => {
     return axios.get(`${url}/profiles/${user_id}/`)
   }
+  static createHaiku = (data) => {
+    return axios.post(`${process.env.REACT_APP_API}/newhaiku/`, data)
+  }
 }
 
 export default HaikuModel;

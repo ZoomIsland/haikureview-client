@@ -16,3 +16,22 @@
   height: 100%;
   background: linear-gradient(to bottom right, #9a7318, #e6dc4b, #9a7318);
 }
+
+@media only screen and (max-width: 900px) {
+  .starDisplay {
+    margin-bottom: -5px;
+  }
+  .star {
+    height: 20px;
+    width: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .starDisplay {
+    margin-bottom: 0px;
+  }
+  .star {
+    height: 15px;
+    width: 15px;
+  }
+}
