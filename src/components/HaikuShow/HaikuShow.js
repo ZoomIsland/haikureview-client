@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -82,7 +82,7 @@ class HaikuShow extends Component {
     axios.delete(`${process.env.REACT_APP_API}/haikus/${id}/`)
     .then((res) => {
       console.log(res.data)
-      // useHistory.go(0)
+      this.props.history.go(0)
     })
       .catch((err) => {
         console.log(err)
@@ -110,7 +110,7 @@ class HaikuShow extends Component {
               <p className='haikuCardUser'>{this.props.haiku.user.profile.display_name}</p>
             }
           </div>
-          {this.props.currentUser === this.props.haiku.user && 
+          {this.props.currentUser === this.props.haiku.user.id && 
             <div className="haikuBtns">
               <Link to={`/updatehaiku/${this.props.haiku.id}`}><div className="haikuEditBtn flex-center">Edit</div></Link>
               <div className="haikuDeleteBtn flex-center" onClick={() => {this.onDelete(this.props.haiku.id)}}>Delete</div>
@@ -132,4 +132,4 @@ class HaikuShow extends Component {
   }
 }
 
-export default HaikuShow;
+export default withRouter(HaikuShow);

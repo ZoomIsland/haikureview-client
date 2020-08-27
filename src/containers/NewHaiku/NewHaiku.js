@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import setAuthHeader from '../../utils/setAuthHeader';
 import MovieModel from '../../models/movies';
@@ -59,7 +60,7 @@ class NewHaiku extends Component {
       this.setState({error: "*Fill out the full Haiku!"})
     } else if (movieIndex === -1) {
       this.setState({error: "*Select a movie to review!"})
-    } else if (this.state.lOneSyl !== 5 || this.state.lTwoSyl !== 7 || this.state.lOneStyl !== 5){ 
+    } else if (this.state.lOneSyl !== 5 || this.state.lTwoSyl !== 7 || this.state.lThreeSyl !== 5){ 
       this.setState({error: "*Remember, haikus have 5 / 7 / 5 syllables!"})
     } else {
       const chosenMovie = JSON.parse(this.state.movie);
@@ -82,7 +83,7 @@ class NewHaiku extends Component {
             haikuData.movie = res.data.id
             return HaikuModel.createHaiku(haikuData)
               .then(res => {
-                this.props.history.goBack()
+                this.props.afterHaikuAdd()
               })
               .catch(err => console.log(err))
           })
@@ -91,7 +92,7 @@ class NewHaiku extends Component {
         haikuData.movie = chosenMovie.id;
         HaikuModel.createHaiku(haikuData)
           .then(res => {
-            this.props.history.goBack()
+            this.props.afterHaikuAdd()
           })
           .catch(err => console.log(err))
       }
@@ -99,6 +100,7 @@ class NewHaiku extends Component {
   }
 
   render() {
+    console.log(this.props.history)
     return (
       <div className="newHaikuPage">
         {/* <SearchBar /> */}
@@ -129,4 +131,4 @@ class NewHaiku extends Component {
   }
 }
 
-export default NewHaiku;
+export default withRouter(NewHaiku);

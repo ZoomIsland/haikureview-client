@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
 import setAuthHeader from './utils/setAuthHeader';
-import SpacerRoutes from './config/SpacerRoutes';
+// import SpacerRoutes from './config/SpacerRoutes';
 import HaikuRoutes from './config/HaikuRoutes';
 import HaikuModel from './models/haikus';
 import './App.css';
@@ -135,6 +135,12 @@ class App extends Component {
       })
   }
 
+  afterHaikuAdd = () => {
+    this.setState({drawerHide: ""});
+    this.onProfileClick();
+    this.props.history.push(`/profiles/${this.state.currentUser}`)
+  }
+
   onProfileMovieClick = (movie_id) => {
     let tempHaikus = this.state.haikusToSort.filter(haiku => haiku.movie.id === movie_id);
     this.setState({haikus: tempHaikus})
@@ -160,7 +166,8 @@ class App extends Component {
           <HaikuRoutes 
             currentUser={this.state.currentUser}
             haikus={this.state.haikus}
-            onContainerClick={this.onContainerClick} />
+            onContainerClick={this.onContainerClick}
+            afterHaikuAdd={this.afterHaikuAdd} />
         </div>
       </>
     );

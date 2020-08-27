@@ -2,7 +2,6 @@ import React from 'react';
 import HaikuShow from '../HaikuShow/HaikuShow'
 
 function HaikuCarousel (props) {
-  console.log(props)
   const haikuList = props.haikus.map(haiku => {
     return <HaikuShow 
       haiku={haiku} 
