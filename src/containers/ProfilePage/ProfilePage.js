@@ -53,7 +53,6 @@ class ProfilePage extends Component {
   
     axios.put(`${process.env.REACT_APP_API}/updateprofile/${data.id}/`, data)
       .then(res => {
-        console.log(res)
         axios.get(`${process.env.REACT_APP_API}/profiles/${profile_id}/`)
           .then((res) => {
             const startData = res.data;
@@ -79,7 +78,6 @@ class ProfilePage extends Component {
 
   toggleUpdate = () => {
     if (this.state.update) {
-      console.log("this is where it would save...")
       this.onUpdateSubmit();
       this.setState({update: false})
     } else {

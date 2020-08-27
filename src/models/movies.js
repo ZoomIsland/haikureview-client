@@ -9,16 +9,7 @@ class MovieModel {
     return axios.post(`${haiku_url}/movies/`, data)
       .catch(err => console.log(err))
   }
-  // After finishing profile, consider deleting:
-  // static searchOMDB(term) {
-  //   const omdb = new OmdbApi({
-  //     apiKey: `${omdb_key}`
-  //   })
-  //   return omdb.bySearch({search: term})
-  // }
-  // static searchHaikuDB(term) {
-  //   return axios.get(`${haiku_url}/movies/?search=${term.replace(" ", "+")}`)
-  // }
+
   static searchAPIs(term) {
     let omdbResults, haikuApiResults;
     const omdb = new OmdbApi({
@@ -26,13 +17,11 @@ class MovieModel {
     })
     return omdb.bySearch({search: term})
     .then(res => {
-      console.log(res.Error)
       if (res.Error) {
         console.log("Ah ah ah")
         omdbResults = [];
       } else {
         let movies = res.Search
-        console.log(res)
         omdbResults = movies.filter(movie => movie.Poster !== "N/A")
       }
       return axios.get(`${haiku_url}/movies/?search=${term.replace(" ", "+")}`)
@@ -63,7 +52,6 @@ class MovieModel {
                   }
                 }
               }
-              console.log(sortedMovies)
               return sortedMovies;
             })
             .catch(err => console.log(err))

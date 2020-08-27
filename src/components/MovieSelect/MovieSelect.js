@@ -14,7 +14,7 @@ function MovieSelect(props) {
   })
   return (
     <select className="movieSelect" name="movie" value={props.movieValue} onChange={props.handleInputChange}>
-      <option value="null">Select a movie</option>
+      <option value="0">Select a movie</option>
       {movieList}
     </select>
   )

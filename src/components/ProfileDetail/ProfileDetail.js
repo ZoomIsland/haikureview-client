@@ -2,7 +2,6 @@ import React from 'react';
 import './ProfileDetail.css'
 
 function ProfileDetail(props) {
-  console.log(props)
   return (
     <div className="profileDetail">
       <h2>{props.data.profile.display_name}</h2>

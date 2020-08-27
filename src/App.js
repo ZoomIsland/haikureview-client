@@ -61,7 +61,6 @@ class App extends Component {
       this.setState({drawerHide: "navCloseAn"});
       setTimeout(() => {
         this.setState({drawerHide: "hidden"})
-        console.log("2 secs?")
       }, 500)
     }
   }
@@ -70,7 +69,6 @@ class App extends Component {
   }
 
   onContainerClick = () => {
-    console.log(this.props.location.pathname)
     const path = this.props.location.pathname;
     if (path.indexOf("profile") !== -1 || path.indexOf("movies") !== -1) {
       this.navClose()

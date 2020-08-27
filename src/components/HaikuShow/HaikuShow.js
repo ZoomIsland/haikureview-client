@@ -81,7 +81,6 @@ class HaikuShow extends Component {
   onDelete = (id) => {
     axios.delete(`${process.env.REACT_APP_API}/haikus/${id}/`)
     .then((res) => {
-      console.log(res.data)
       this.props.history.go(0)
     })
       .catch((err) => {
@@ -94,7 +93,6 @@ class HaikuShow extends Component {
       <div className="haikuContainer flex-center-column">
         <div className='haikuCard flex-center'>
           <div className='innerHaikuCard innerCardContainer'>
-            {/* if haiku.avgRating */}
             <StarDisplay rating={this.ratingCount()} />
             <h2 className='haikuTitle'>{this.props.haiku.title}</h2>
             <p className='haikuText'>{this.props.haiku.line_one}</p>
@@ -106,7 +104,7 @@ class HaikuShow extends Component {
             {this.props.haiku.id !== 0 &&
               <p className="commentLink" onClick={this.toggleComments}>{this.changeCommentText()}</p>
             }
-            {this.props.haiku.user &&
+            {this.props.haiku.user.profile &&
               <p className='haikuCardUser'>{this.props.haiku.user.profile.display_name}</p>
             }
           </div>

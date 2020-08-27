@@ -38,7 +38,6 @@ class Nav extends Component {
         axios.post(`${process.env.REACT_APP_API}/login/`, data)
         .then((res) => {
           this.setState({formType: ""})
-          console.log(res);
           this.props.setCurrentUser(res.data.token);
         })
         .catch((err) => {
@@ -50,7 +49,6 @@ class Nav extends Component {
           axios.post(`${process.env.REACT_APP_API}/register/`, data)
           .then((res) => {
             this.setState({formType: ""})
-            console.log(res)
             this.props.setCurrentUser(res.data.token);
           })
           .catch((err) => {

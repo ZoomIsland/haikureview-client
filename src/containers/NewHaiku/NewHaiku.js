@@ -55,15 +55,15 @@ class NewHaiku extends Component {
   // Post request with user header
   handleSubmit = (e) => {
     e.preventDefault();
-    const movieIndex = (parseInt(this.state.movie) - 1)
     if (!this.state.title || !this.state.lineOne || !this.state.lineTwo || !this.state.lineThree) {
       this.setState({error: "*Fill out the full Haiku!"})
-    } else if (movieIndex === -1) {
+    } else if (this.state.movie === "0") {
       this.setState({error: "*Select a movie to review!"})
     } else if (this.state.lOneSyl !== 5 || this.state.lTwoSyl !== 7 || this.state.lThreeSyl !== 5){ 
       this.setState({error: "*Remember, haikus have 5 / 7 / 5 syllables!"})
     } else {
       const chosenMovie = JSON.parse(this.state.movie);
+      console.log(chosenMovie)
       let token = localStorage.getItem('token');
       setAuthHeader(token)
       const haikuData = {
@@ -75,7 +75,7 @@ class NewHaiku extends Component {
       }
       if (chosenMovie.id === 0) {
         const movieData = {
-          title: chosenMovie.Title,
+          title: chosenMovie.title,
           poster: chosenMovie.Poster,
         }
         MovieModel.createMovie(movieData)
@@ -100,7 +100,6 @@ class NewHaiku extends Component {
   }
 
   render() {
-    console.log(this.props.history)
     return (
       <div className="newHaikuPage">
         {/* <SearchBar /> */}

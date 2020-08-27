@@ -30,7 +30,6 @@ class MovieSearch extends Component {
     if (this.state.movieSearch) {
       MovieModel.searchAPIs(this.state.movieSearch)
         .then(res=> {
-          console.log(res)
           this.setState({movies: res})
         })
         .catch(err=> console.log(err))
@@ -52,7 +51,6 @@ class MovieSearch extends Component {
           handleInputChange={this.handleInputChange} 
           onSearch={this.onSearch} 
           searchPlaceholder={this.props.searchPlaceholder} />
-        {/* <MovieList movies={this.state.movies} onMovieClick={this.props.onMovieClick} /> */}
         <MovieRoutes 
           movies={this.state.movies} 
           onMovieClick={this.props.onMovieClick}
