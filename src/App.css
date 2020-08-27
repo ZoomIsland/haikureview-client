@@ -4,6 +4,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
+a {
+  color: none;
+  text-decoration: none;
+}
+
 :root {
   --red-velvet: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
   --cherry-blossom: url("https://images.unsplash.com/photo-1522382955582-23b67919cca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");

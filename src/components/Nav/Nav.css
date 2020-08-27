@@ -25,8 +25,10 @@ nav a {
   line-height: 42px;
   padding-left: 20px;
   background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   letter-spacing: 1px;
 }
 .navLinks {
@@ -42,7 +44,6 @@ nav a {
 .navProfile,
 .navLogBtns {
   height: 50px;
-  color: white;
   font-size: 20px;
   padding: 0px 6px;
   margin: 0px 7px;
@@ -54,8 +55,10 @@ nav a {
   display: flex;
   align-items: center;
   background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .navSearch {
   width: 135px;
