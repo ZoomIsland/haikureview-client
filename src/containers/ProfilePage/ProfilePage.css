@@ -5,8 +5,6 @@
 
 .profileContainer {
   display: flex;
-}
-.profileContainer {
   width: 100vw;
   background: var(--drawer-color);
   height: 250px;
@@ -20,13 +18,18 @@
 }
 
 .profileMovies {
-  width: calc(60vw - 40px);
-  padding: 10px;
-  background: lightgray;
+  width: calc(100vw - 350px);
   height: 210px;
-  margin: 10px;
+  margin: 10px 0px;
 }
 .profileMovies h2 {
   margin-bottom: 10px;
+  background: rgba(255,255,255,0.5);
+  width: 101px;
   font-family: Roboto;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 900px) {
 }

@@ -57,7 +57,13 @@ class App extends Component {
   }
 
   navClose = () => {
-    this.setState({drawerHide: "hidden"})
+    if (this.state.drawerHide === "") {
+      this.setState({drawerHide: "navCloseAn"});
+      setTimeout(() => {
+        this.setState({drawerHide: "hidden"})
+        console.log("2 secs?")
+      }, 500)
+    }
   }
   navOpen = () => {
     this.setState({drawerHide: ""})
@@ -138,7 +144,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <SpacerRoutes drawerHide={this.state.drawerHide} />
+        {/* <SpacerRoutes drawerHide={this.state.drawerHide} /> */}
+        <div className={this.state.drawerHide + " topSpacer"}></div>
         <div className="app">
           <Nav setCurrentUser={this.setCurrentUser} 
               currentUser={this.state.currentUser}

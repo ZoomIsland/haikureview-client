@@ -103,6 +103,13 @@ button:hover {
 .hidden {
   display: none;
 }
+@keyframes navClose {
+  from {height: 300px;}
+  to {height: 0px;}
+}
+.navCloseAn {
+  animation: navClose 500ms 1 forwards;
+}
 
 
 
