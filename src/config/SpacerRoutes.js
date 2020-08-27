@@ -6,10 +6,10 @@ function SpacerRoutes(props) {
     <Switch>
       <Route 
         path='/profiles/' 
-        render={() => <div className="topSpacer"></div>} />
+        render={() => <div className={props.drawerHide + " topSpacer"}></div>} />
       <Route 
         path='/movies/' 
-        render={() => <div className="topSpacer"></div>} />
+        render={() => <div className={props.drawerHide + " topSpacer"}></div>} />
     </Switch>
   )
 }

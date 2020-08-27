@@ -6,7 +6,7 @@ import NewHaiku from '../containers/NewHaiku/NewHaiku';
 import UpdateHaiku from '../containers/UpdateHaiku/UpdateHaiku';
 
 function HaikuRoutes(props) {
-  const { currentUser, haikus } = props;
+  const { currentUser, haikus, onContainerClick } = props;
   return (
     <Switch>
       <Route 
@@ -17,7 +17,7 @@ function HaikuRoutes(props) {
         render={(props) => <UpdateHaiku {...props} currentUser={currentUser} />} />
       <Route
         path='/'
-        render={(props) => <MainHub {...props} currentUser={currentUser} haikus={haikus} />} />
+        render={(props) => <MainHub {...props} currentUser={currentUser} haikus={haikus} onContainerClick={onContainerClick}/>} />
     </Switch>
   )};
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Nav from './components/Nav/Nav';
 import setAuthHeader from './utils/setAuthHeader';
@@ -13,6 +14,7 @@ class App extends Component {
     haikus: [],
     haikusToSort: [],
     movies: [],
+    drawerHide: "hidden"
   };
 
   componentDidMount() {
@@ -30,8 +32,46 @@ class App extends Component {
       })
   }
 
+  setCurrentUser = (token) => {
+    localStorage.setItem('token', token);
+    setAuthHeader(token);
+    const decodedToken = jwt_decode(token);
+    this.setState({currentUser: decodedToken.user_id})
+  }
+  logout = () => {
+    localStorage.removeItem('token');
+    setAuthHeader();
+    this.setState({currentUser: ''});
+  }
+  
+  onMainClick = () => {
+    HaikuModel.getAllHaikus()
+      .then((res) => {
+        this.setState({drawerHide: "hidden"})
+        const sortedResults = this.getAvgAndSort(res.data);
+        this.setState({haikus: sortedResults})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  navClose = () => {
+    this.setState({drawerHide: "hidden"})
+  }
+  navOpen = () => {
+    this.setState({drawerHide: ""})
+  }
+
+  onContainerClick = () => {
+    console.log(this.props.location.pathname)
+    const path = this.props.location.pathname;
+    if (path.indexOf("profile") !== -1 || path.indexOf("movies") !== -1) {
+      this.navClose()
+    }
+  }
+
   getAvgAndSort = (haikuArray) => {
-    console.log(haikuArray)
     const arrayWithRatings = []
     haikuArray.forEach(haiku => {
       const midHaiku = haiku;
@@ -43,7 +83,6 @@ class App extends Component {
           ratingCount--;
         }
       })
-      console.log(totalRating, ratingCount)
       if (ratingCount === 0) {
         midHaiku.avgRating = 0
       } else {
@@ -63,42 +102,19 @@ class App extends Component {
     return sortedArray;
   }
 
-  onMainClick = () => {
-    HaikuModel.getAllHaikus()
-      .then((res) => {
-        const sortedResults = this.getAvgAndSort(res.data);
-        this.setState({haikus: sortedResults})
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-  setCurrentUser = (token) => {
-    localStorage.setItem('token', token);
-    setAuthHeader(token);
-    const decodedToken = jwt_decode(token);
-    this.setState({currentUser: decodedToken.user_id})
-  }
-
-  logout = () => {
-    localStorage.removeItem('token');
-    setAuthHeader();
-    this.setState({currentUser: ''});
-  }
-
   onMovieClick = (movie_id) => {
     if (movie_id === 0) {
       this.setState({haikus: []})
+    } else {
+      HaikuModel.getMovieHaikus(movie_id)
+        .then((res) => {
+          const sortedResults = this.getAvgAndSort(res.data.haikus);
+          this.setState({haikus: sortedResults})
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
-    HaikuModel.getMovieHaikus(movie_id)
-      .then((res) => {
-        const sortedResults = this.getAvgAndSort(res.data.haikus);
-        this.setState({haikus: sortedResults})
-      })
-      .catch((err) => {
-        console.log(err)
-      })
   }
 
   onProfileClick = () => {
@@ -122,7 +138,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <SpacerRoutes />
+        <SpacerRoutes drawerHide={this.state.drawerHide} />
         <div className="app">
           <Nav setCurrentUser={this.setCurrentUser} 
               currentUser={this.state.currentUser}
@@ -130,14 +146,18 @@ class App extends Component {
               onMainClick={this.onMainClick}
               onMovieClick={this.onMovieClick}
               onProfileClick={this.onProfileClick}
-              onProfileMovieClick={this.onProfileMovieClick} />
+              onProfileMovieClick={this.onProfileMovieClick}
+              drawerHide={this.state.drawerHide}
+              navOpen={this.navOpen}
+              navClose={this.navClose} />
           <HaikuRoutes 
             currentUser={this.state.currentUser}
-            haikus={this.state.haikus} />
+            haikus={this.state.haikus}
+            onContainerClick={this.onContainerClick} />
         </div>
       </>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

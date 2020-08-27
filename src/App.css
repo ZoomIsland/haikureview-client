@@ -8,7 +8,7 @@
   --red-velvet: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
   --cherry-blossom: url("https://images.unsplash.com/photo-1522382955582-23b67919cca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
   --drawer-color: url("https://images.unsplash.com/photo-1498962342534-ee08a0bb1d45?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80");
-  /* --gold: linear-gradient(to bottom right, #9a7318, #e6dc4b, #9a7318); */
+  --brass: linear-gradient(to bottom right, #9a7318, #e6dc4b, #9a7318);
   --gold: linear-gradient(to bottom right,#E09082, #e8ba83, #E09082);
   --rose-gold: linear-gradient(to bottom right,#E09082, #d2a46d, #E09082);
 }
@@ -58,7 +58,7 @@
 /* General styling */
 button {
   padding: 10px;
-  background: var(--gold);
+  background: var(--brass);
   color: black;
   height: 50px;
   font-size: 24px;
@@ -68,6 +68,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+button:hover {
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.75);
 }
 
 .cardContainer {
@@ -94,6 +99,12 @@ button {
 .red {
   color: red;
 }
+
+.hidden {
+  display: none;
+}
+
+
 
 @media only screen and (max-width: 750px) {
   .mainContainer {

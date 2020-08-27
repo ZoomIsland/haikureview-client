@@ -35,7 +35,7 @@ nav a {
 .navSearch,
 .navAdd,
 .navProfile,
-.navLinks button {
+.navLogBtns {
   height: 50px;
   color: white;
   font-size: 20px;
@@ -44,7 +44,8 @@ nav a {
 }
 .navSearch,
 .navProfile,
-.navAdd {
+.navAdd,
+.navLogBtns {
   display: flex;
   align-items: center;
   background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
@@ -57,7 +58,7 @@ nav a {
 .navAdd {
   width: 95px;
 }
-.navLinks button {
+.navLogBtns {
   border: none;
   background: none;
   font-weight: 400;
@@ -65,12 +66,11 @@ nav a {
   background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  box-shadow: none;
 }
-.navLinks button:hover,
-.navSearch:hover,
-.navAdd:hover,
-.navProfile:hover {
-  text-decoration: underline;
+
+.navLogBtns:hover {
+  box-shadow: 0px 0px black;
 }
 
 @keyframes boxDrop {
@@ -149,7 +149,7 @@ nav a {
   .navSearch,
   .navAdd,
   .navProfile,
-  .navLinks button {
+  .navLogBtns {
     font-size: 16px;
     margin: 0px 3px;
     width: auto;
