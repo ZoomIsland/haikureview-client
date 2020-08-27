@@ -54,12 +54,13 @@ class NewHaiku extends Component {
   // Post request with user header
   handleSubmit = (e) => {
     e.preventDefault();
+    const movieIndex = (parseInt(this.state.movie) - 1)
     if (!this.state.title || !this.state.lineOne || !this.state.lineTwo || !this.state.lineThree) {
       this.setState({error: "*Fill out the full Haiku!"})
-    }
-    const movieIndex = (parseInt(this.state.movie) - 1)
-    if (movieIndex === -1) {
+    } else if (movieIndex === -1) {
       this.setState({error: "*Select a movie to review!"})
+    } else if (this.state.lOneSyl !== 5 || this.state.lTwoSyl !== 7 || this.state.lOneStyl !== 5){ 
+      this.setState({error: "*Remember, haikus have 5 / 7 / 5 syllables!"})
     } else {
       const chosenMovie = JSON.parse(this.state.movie);
       let token = localStorage.getItem('token');
