@@ -25,15 +25,16 @@ nav a {
   line-height: 42px;
   padding-left: 20px;
   background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   letter-spacing: 1px;
 }
 .navLinks {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  background: black;
   align-items: center;
   height: 50px;
 }
@@ -42,20 +43,21 @@ nav a {
 .navProfile,
 .navLogBtns {
   height: 50px;
-  color: white;
   font-size: 20px;
   padding: 0px 6px;
   margin: 0px 7px;
+  padding-top: 25px;
 }
 .navSearch,
 .navProfile,
-.navAdd,
-.navLogBtns {
-  display: flex;
-  align-items: center;
+.navAdd {
   background: -webkit-linear-gradient(bottom right, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
+  cursor: pointer;
+  margin: 0 auto;
 }
 .navSearch {
   width: 135px;
@@ -64,6 +66,7 @@ nav a {
   width: 95px;
 }
 .navLogBtns {
+  margin: 0 auto;
   border: none;
   background: none;
   font-weight: 400;
@@ -149,7 +152,6 @@ nav a {
     width: 100vw;
     height: 20px;
     margin-bottom: 5px;
-    background: black;
     margin: 0;
     justify-content: center;
   }

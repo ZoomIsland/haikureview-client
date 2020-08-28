@@ -4,6 +4,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
+a {
+  color: none;
+  text-decoration: none;
+}
+
 :root {
   --red-velvet: url("http://bgfons.com/uploads/velvet/velvet_texture1773.jpg");
   --cherry-blossom: url("https://images.unsplash.com/photo-1522382955582-23b67919cca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80");
@@ -56,10 +61,13 @@
 }
 
 /* General styling */
-button {
-  padding: 10px;
+button,
+.searchBtn {
+  margin: 0 auto;
   background: var(--brass);
   color: black;
+  width: 100px;
+  border: 2px solid black;
   height: 50px;
   font-size: 24px;
   font-weight: 700px;
@@ -71,8 +79,12 @@ button {
   box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
   cursor: pointer;
 }
-button:hover {
+button:hover,
+.searchBtn:hover {
   box-shadow: 4px 4px 8px rgba(0,0,0,0.75);
+}
+.searchBtn {
+  height: 35px;
 }
 
 .cardContainer {
