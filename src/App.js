@@ -148,7 +148,6 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <SpacerRoutes drawerHide={this.state.drawerHide} /> */}
         <div className={this.state.drawerHide + " topSpacer"}></div>
         <div className="app">
           <Nav setCurrentUser={this.setCurrentUser} 
@@ -167,6 +166,7 @@ class App extends Component {
             onContainerClick={this.onContainerClick}
             afterHaikuAdd={this.afterHaikuAdd} />
         </div>
+        <div className="footer">&copy; Zach Milan 2020</div>
       </>
     );
   }

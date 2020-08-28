@@ -123,3 +123,23 @@ Working with both react-router-dom AND Django Rest Framework at the same time wa
 React's component system continues to be my favorite. I kept trimming down my components, realizing I didn't need this shell, or that view. I want to continue tightening up this code--particularly on the models or extraneous function end--React makes that interesting. And adding react-router-dom's Switch/Routes, I was able to utilize some fun tricks on my Movie Container.
 
 I'm proud of this capstone project--and hope to continue iterating it to be the pristine, seamless app that any haiku writer would be proud of.
+
+
+## Code I'm proud of ##
+
+## 2 APIs => 1 smart list ##
+Since my database is meant to grow as needed from OMDB's list, I needed a way of sorting and comparing--with mine getting precedence. OMDB's "Title" to the rescue! What initially was a mistake turned into a way of comparing.
+![SortCompare](/public/SortCompare.png)
+
+## Star Display ##
+How to represent decimal places in a star display? Why, add a percentage-based style on render (This code targeted for DRYing -- obvious duplication)
+![StarDispaly](/public/StarDisplay.png)
+
+### Drawer ###
+Knowing early on that I wanted an everpresent footer--but also wanted a drawer to appear and disappear without covering information, I devised this smart drawer. It shortens the height of app--which means that as you scroll through the data you can see all of it--even if you've left the drawer open.
+![DrawerHideControls](/public/DrawerHideControls.png)
+![DrawerHideSpacer](/public/DrawerHideSpacer.png)
+
+## Movie Search's children ##
+Initially, Movie Search was written to have a single child. But when I realized I wanted a similar search (with a dropdown instead of images) on the New Haiku page, implemented this router to show how the list data should render.
+![MovieSearchChild](/public/MovieSearchChild.png)

@@ -41,8 +41,7 @@ class MovieSearch extends Component {
           // call next function
           axios.get(`${haiku_url}/movies/?search=${term}`)
             .then(res => {
-              haikuApiResults = res.data
-              console.log(omdbResults)
+              haikuApiResults = res.data;
               const moviesArray = haikuApiResults;
               omdbResults.forEach(omdbResult => {
                 omdbResult.id = 0;
