@@ -46,23 +46,23 @@
 
 ![AddHaiku](/public/AddHaiku.png)
 
-##Milestones##
+## Milestones ##
 
-###Sprint 1: Backend###
+### Sprint 1: Backend ###
 * Auth model created for User
 * Models created for Profile, Haiku, and Comment
 * Full CRUD routes on Haiku, and Comment
 * Profile has an Update route
 * Bonus: Delete function on User/Profile
 
-###Sprint 2: Tying Front to back (minimal front)###
+### Sprint 2: Tying Front to back (minimal front) ###
 * All routes implemented in React Router
 * Show pages for Haiku and Profile showing info
 * Add/update pages for Haiku
 * Movie show page
 * Front page with login/signup/logout
 
-###Sprint 3: Frontend Beautification###
+### Sprint 3: Frontend Beautification ###
 * Navbar implemented with changing text if user is logged in or not
 * CSS for all pages
 * Front page with carousel implemented
@@ -71,12 +71,12 @@
 * Profile Image uploader / Profile Update
 * Edit/Delete functionality for user’s Haikus and comments
 
-###Sprint 4: Tying in APIs###
+### Sprint 4: Tying in APIs ###
 * Tie in OMDB data to appear on the Movie show page
 * OMDB data should also be scraped into a Model if non exist
 * Check Add/Edit Haiku line length against Words API
 
-###Sprint 5: Extras###
+### Sprint 5: Extras ###
 * Simple Rating system (no comment required)
 * Haiku Pagination (on Profile & Movie show pages)
 * Links to external sites (IMDB, Amazon, etc)
@@ -84,7 +84,7 @@
 * About page
 * Message system
 
-###Schedule###
+### Schedule ###
 * Friday - Sprint 1
 * Saturday - Sprint 1
 * Sunday - Sprint 2
@@ -94,9 +94,9 @@
 * Thursday - Final Cleanup
 
 
-##Tech used##
+## Tech used ##
 
-###Languages, Libraries, Frameworks###
+### Languages, Libraries, Frameworks ###
 * Python
 * Django
 * Django Rest Framework
@@ -105,11 +105,11 @@
 * HTML
 * CSS
 
-###APIs###
+### APIs ###
 * OMDB API (to find/return movie data)
 * Words API (to test syllables)
 
-###Dependencies###
+### Dependencies ###
 * react-router-dom
 * axios
 * jwt-decode
