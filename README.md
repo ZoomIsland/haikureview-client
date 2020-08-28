@@ -1,68 +1,145 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Haiku Reviews #
 
-## Available Scripts
+[Visit the site!](https://haikureviews.herokuapp.com)
 
-In the project directory, you can run:
+## Where brevity is the soul of movies ##
 
-### `npm start`
+**Description:** Did you just see a movie you love and want to write a review for it? Check out Haiku Reviews, where you must submit your review in a 5-7-5 format. Use all your cleverness and share with other users!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**User**: Movie lovers who want to share their opinions in clever ways
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**User Story:**
+* A user should be able to access the homepage and see the top Haikus of the moment.
+* They should also be able to search movies and find associated Haikus.
+* They can also look at an individual Haiku and the rating/comments associated with it.
+* Logged in users can see their profile page
+* Logged in users can add Haikus to movies
+* Logged in users may edit/remove their own Haikus
+* Logged in users can comment on/rate other Haikus
 
-### `npm test`
+### ERD ###
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![ERD](/public/ERD.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Wireframes ###
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Homepage**
+![Homepage](/public/Homescreen.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Movie Search**
 
-### `npm run eject`
+![MovieSearch](/public/MovieSearch.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Profile Page**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![ProfilePage](/public/Profile.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Haiku with Comments**
+![HaikuShow](/public/HaikuShow.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**User View of Haiku**
 
-## Learn More
+![UserHaiku](/public/UserComment.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Add Haiku View**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![AddHaiku](/public/AddHaiku.png)
 
-### Code Splitting
+## Milestones ##
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Sprint 1: Backend ###
+* Auth model created for User
+* Models created for Profile, Haiku, and Comment
+* Full CRUD routes on Haiku, and Comment
+* Profile has an Update route
+* Bonus: Delete function on User/Profile
 
-### Analyzing the Bundle Size
+### Sprint 2: Tying Front to back (minimal front) ###
+* All routes implemented in React Router
+* Show pages for Haiku and Profile showing info
+* Add/update pages for Haiku
+* Movie show page
+* Front page with login/signup/logout
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Sprint 3: Frontend Beautification ###
+* Navbar implemented with changing text if user is logged in or not
+* CSS for all pages
+* Front page with carousel implemented
+* Rating/Comment system added into Frontend
+* Arrange Haikus by rating -- then date
+* Profile Image uploader / Profile Update
+* Edit/Delete functionality for user’s Haikus and comments
 
-### Making a Progressive Web App
+### Sprint 4: Tying in APIs ###
+* Tie in OMDB data to appear on the Movie show page
+* OMDB data should also be scraped into a Model if non exist
+* Check Add/Edit Haiku line length against Words API
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Sprint 5: Extras ###
+* Simple Rating system (no comment required)
+* Haiku Pagination (on Profile & Movie show pages)
+* Links to external sites (IMDB, Amazon, etc)
+* Thesaurus/word help (from Words API)
+* About page
+* Message system
 
-### Advanced Configuration
+### Schedule ###
+* Friday - Sprint 1
+* Saturday - Sprint 1
+* Sunday - Sprint 2
+* Monday - Sprint 3
+* Tuesday - Sprint 4
+* Wednesday - Sprint 5
+* Thursday - Final Cleanup
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+## Tech used ##
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Languages, Libraries, Frameworks ###
+* Python
+* Django
+* Django Rest Framework
+* React
+* JS
+* HTML
+* CSS
 
-### `npm run build` fails to minify
+### APIs ###
+* OMDB API (to find/return movie data)
+* Words API (to test syllables)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Dependencies ###
+* react-router-dom
+* axios
+* jwt-decode
+* dotenv
+
+## What I learned from this project ##
+It's become obvious that clear initial vision equates to speedy and thoughtful progress. There were a number of innovations in this project from the outset. Knowing this allowed me to factor my code in reusable ways--just what you need for a React project!
+
+Working with both react-router-dom AND Django Rest Framework at the same time was a challenge! I love React, and am growing fond of Django, but getting both to interact exactly as I wanted felt a little fiddly. I'm pleased with the results, but want to continue learning as I'm sure there are faster, smarter ways of structuring my code (in Django Rest Framework), or utilizing paths in smarter, more effective ways.
+
+React's component system continues to be my favorite. I kept trimming down my components, realizing I didn't need this shell, or that view. I want to continue tightening up this code--particularly on the models or extraneous function end--React makes that interesting. And adding react-router-dom's Switch/Routes, I was able to utilize some fun tricks on my Movie Container.
+
+I'm proud of this capstone project--and hope to continue iterating it to be the pristine, seamless app that any haiku writer would be proud of.
+
+
+## Code I'm proud of ##
+
+## 2 APIs => 1 smart list ##
+Since my database is meant to grow as needed from OMDB's list, I needed a way of sorting and comparing--with mine getting precedence. OMDB's "Title" to the rescue! What initially was a mistake turned into a way of comparing.
+![SortCompare](/public/SortCompare.png)
+
+## Star Display ##
+How to represent decimal places in a star display? Why, add a percentage-based style on render (This code targeted for DRYing -- obvious duplication)
+![StarDispaly](/public/StarDisplay.png)
+
+### Drawer ###
+Knowing early on that I wanted an everpresent footer--but also wanted a drawer to appear and disappear without covering information, I devised this smart drawer. It shortens the height of app--which means that as you scroll through the data you can see all of it--even if you've left the drawer open.
+![DrawerHideControls](/public/DrawerHideControls.png)
+![DrawerHideSpacer](/public/DrawerHideSpacer.png)
+
+## Movie Search's children ##
+Initially, Movie Search was written to have a single child. But when I realized I wanted a similar search (with a dropdown instead of images) on the New Haiku page, implemented this router to show how the list data should render.
+![MovieSearchChild](/public/MovieSearchChild.png)
