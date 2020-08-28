@@ -1,5 +1,4 @@
 import axios from 'axios';
-import OmdbApi from 'omdb-api-pt';
 
 const haiku_url = process.env.REACT_APP_API;
 const omdb_key = process.env.REACT_APP_OMDB_API_KEY;
@@ -11,16 +10,7 @@ class MovieModel {
   }
 
   static searchAPIs(term) {
-    let omdbResults, haikuApiResults;
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(JSON.parse(this.response))
-        // return this.response;
-      }
-    };
-    xhttp.open("GET", `http://www.omdbapi.com/?s=${term}&page=1&apikey=${omdb_key}`, true);
-    return xhttp.send();
+    // let omdbResults, haikuApiResults;
     // const omdb = new OmdbApi({
     //   apiKey: `${omdb_key}`
     // })
