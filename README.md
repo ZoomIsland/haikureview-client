@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Haiku Reviews #
 
-## Available Scripts
+## Where brevity is the soul of movies ##
 
-In the project directory, you can run:
+**Description:** Did you just see a movie you love and want to write a review for it? Check out Haiku Reviews, where you must submit your review in a 5-7-5 format. Use all your cleverness and share with other users!
 
-### `npm start`
+**User**: Movie lovers who want to share their opinions in clever ways
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**User Story:**
+* A user should be able to access the homepage and see the top Haikus of the moment.
+* They should also be able to search movies and find associated Haikus.
+* They can also look at an individual Haiku and the rating/comments associated with it.
+* Logged in users can see their profile page
+* Logged in users can add Haikus to movies
+* Logged in users may edit/remove their own Haikus
+* Logged in users can comment on/rate other Haikus
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+### Wireframes ###
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Homepage**
+![Homepage](/public/Homescreen.png)
 
-### `npm run build`
+**Movie Search**
+![MovieSearch](/public/MovieSearch.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Profile Page**
+![ProfilePage](/public/Profile.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Haiku with Comments**
+![HaikuShow](/public/HaikuShow.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**User View of Haiku**
+![UserHaiku](/public/UserComment.png)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Add Haiku View**
+![AddHaiku](/public/AddHaiku.png)
