@@ -27,7 +27,6 @@ class Nav extends Component {
     })
   }
   
-  // implementing for login right now
   handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -72,20 +71,20 @@ class Nav extends Component {
               onClick={(e) => {
                 this.formAppear(e);
                 this.props.onMainClick()}} 
-              data-formType="">Haiku Review</NavLink>
+              data-formtype="">Haiku Review</NavLink>
           </h1>
           <div className="navLinks">
             <NavLink 
-              to="/movies/"><div className="navSearch" data-formType="" onClick={(e) => {
+              to="/movies/"><div className="navSearch" data-formtype="" onClick={(e) => {
                 this.formAppear(e);
                 this.props.navOpen()}
               }>Search Movies</div></NavLink>
             {!this.props.currentUser && (
               <React.Fragment>
                 <div className="navLogBtns" onClick={(e) => {
-                  this.formAppear(e)}} data-formType="login">Login</div>
+                  this.formAppear(e)}} data-formtype="login">Login</div>
                 <div className="navLogBtns" onClick={(e) => {
-                  this.formAppear(e)}} data-formType="signup">Sign Up</div>
+                  this.formAppear(e)}} data-formtype="signup">Sign Up</div>
               </React.Fragment>
             )}
             {this.props.currentUser && (

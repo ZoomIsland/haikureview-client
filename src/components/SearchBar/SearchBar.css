@@ -15,11 +15,6 @@
   padding-left: 10px;
   margin-right: 10px;
 }
-.searchContainer button {
-  width: 25%;
-  height: 35px;
-  font-size: 24px;
-}
 
 @media only screen and (max-width: 900px) {
   .searchContainer {
@@ -29,7 +24,7 @@
     height: 25px;
     font-size: 18px;
   }
-  .addHaikuForm .searchContainer button {
+  .addHaikuForm .searchBtn {
     height: 25px;
     width: 100px;
     font-size: 18px;

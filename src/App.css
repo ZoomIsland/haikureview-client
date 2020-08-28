@@ -61,10 +61,13 @@ a {
 }
 
 /* General styling */
-button {
+button,
+.searchBtn {
   margin: 0 auto;
   background: var(--brass);
   color: black;
+  width: 100px;
+  border: 2px solid black;
   height: 50px;
   font-size: 24px;
   font-weight: 700px;
@@ -76,8 +79,12 @@ button {
   box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
   cursor: pointer;
 }
-button:hover {
+button:hover,
+.searchBtn:hover {
   box-shadow: 4px 4px 8px rgba(0,0,0,0.75);
+}
+.searchBtn {
+  height: 35px;
 }
 
 .cardContainer {

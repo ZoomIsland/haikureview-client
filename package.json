@@ -10,7 +10,6 @@
     "dotenv": "^8.2.0",
     "electron": "^10.0.1",
     "jwt-decode": "^2.2.0",
-    "omdb-api-pt": "^2.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.3",
